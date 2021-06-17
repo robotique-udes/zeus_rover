@@ -8,9 +8,19 @@
 
 3. Clone this repo in `~catkin_ws/src/`
 
-4. Download dependencies with: 
+4. To download dependencies, go to the root of your workspace and execute the following: 
     ```bash
     rosdep install --from-paths src --ignore-src -r -y
+    ```
+    **Note**: you may need to install rosdep first.<br>
+    Command to install rosdep:
+    ```bash
+    sudo apt-get install python-rosdep
+    ```
+    Initialize rosdep once after the installation:
+    ```bash
+    sudo rosdep init
+    rosdep update
     ```
 
 5. Go to the root of the workspace and execute `catkin_make`
