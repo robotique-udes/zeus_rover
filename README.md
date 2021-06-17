@@ -8,7 +8,12 @@
 
 3. Clone this repo in `~catkin_ws/src/`
 
-4. Go to the root of the workspace and execute `catkin_make`
+4. Download dependencies with: 
+    ```bash
+    rosdep install --from-paths src --ignore-src -r -y
+    ```
+
+5. Go to the root of the workspace and execute `catkin_make`
 
 ## Launching the Gazebo simulation
 To launch the gazebo simulation, execute this command
