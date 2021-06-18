@@ -38,3 +38,8 @@ To view only the rover model without gazebo:
 ```bash
 roslaunch steve_viz model.launch
 ```
+To control the rover with a gamepad:
+1. Clone [steve_teleop](https://github.com/STEVE-Rover/steve_teleop) in your workspace and do `catkin_make`
+2. ```bash
+    roslaunch steve_teleop teleop_gamepad.launch
+    ```
