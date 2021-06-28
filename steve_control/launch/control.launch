@@ -7,6 +7,15 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
+  <!-- Odometry sources -->
+  <node name="rgbd_odometry" pkg="rtabmap_ros" type="rgbd_odometry" >
+    <remap from="rgb/image" to="/d435/color/image_raw" />
+    <remap from="rgb/camera_info" to="/d435/color/camera_info" />
+    <remap from="depth/image" to="/d435/depth/image_rect_raw" />
+    <remap from="odom" to="rgdb_odom" />
+    <rosparam command="load" file="$(find steve_control)/config/rgdb_odometry.yaml"/>
+  </node>
+
   <!-- EKF Localization -->
   <node name="local_ekf" pkg="robot_localization" type="ekf_localization_node" >
     <rosparam command="load" file="$(find steve_control)/config/local_ekf.yaml"/>

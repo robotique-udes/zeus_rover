@@ -15,6 +15,7 @@
   <depend>joint_state_publisher</depend>
   <depend>robot_state_publisher</depend>
   <depend>robot_localization</depend>
+  <depend>rtabmap_ros</depend>
 
   <export>
   </export>
