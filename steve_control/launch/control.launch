@@ -12,8 +12,8 @@
     <remap from="rgb/image" to="/d435/color/image_raw" />
     <remap from="rgb/camera_info" to="/d435/color/camera_info" />
     <remap from="depth/image" to="/d435/depth/image_rect_raw" />
-    <remap from="odom" to="rgdb_odom" />
-    <rosparam command="load" file="$(find steve_control)/config/rgdb_odometry.yaml"/>
+    <remap from="odom" to="rgbd_odom" />
+    <rosparam command="load" file="$(find steve_control)/config/rgbd_odometry.yaml"/>
   </node>
 
   <!-- EKF Localization -->

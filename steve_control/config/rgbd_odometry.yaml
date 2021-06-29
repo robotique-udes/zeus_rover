@@ -1,9 +1,10 @@
 # ROS params
 approx_sync: true
-rgdb_cameras: 1
+rgbd_cameras: 1
 frame_id: base_link
 odom_frame_id: odom
 publish_tf: false
 guess_frame_id: odom
 
 # RTAB-Map params
+Odom/Holonomic: true

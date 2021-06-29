@@ -171,7 +171,7 @@
       <robotNamespace>$(arg robot_namespace)</robotNamespace>
       <updateRate>100.0</updateRate>
       <bodyName>base_link</bodyName>
-      <topicName>imu/data</topicName>
+      <topicName>/imu/data</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
       <rateDrift>0.005 0.005 0.005 </rateDrift>
@@ -193,7 +193,8 @@
       <referenceLongitude>-71.9276222</referenceLongitude>
       <referenceHeading>90</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
-      <drift>2.0 2.0 2.0</drift>
+      <drift>0.05 0.05 0.05</drift>
+      <gaussianNoise>1 1 1</gaussianNoise>
     </plugin>
   </gazebo>
 
