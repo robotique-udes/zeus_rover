@@ -7,4 +7,32 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
+  <!-- Odometry sources -->
+  <node name="rgbd_odometry" pkg="rtabmap_ros" type="rgbd_odometry" >
+    <remap from="rgb/image" to="/d435/color/image_raw" />
+    <remap from="rgb/camera_info" to="/d435/color/camera_info" />
+    <remap from="depth/image" to="/d435/depth/image_rect_raw" />
+    <remap from="odom" to="rgbd_odom" />
+    <rosparam command="load" file="$(find steve_control)/config/rgbd_odometry.yaml"/>
+  </node>
+
+  <!-- EKF Localization -->
+  <node name="local_ekf" pkg="robot_localization" type="ekf_localization_node" >
+    <rosparam command="load" file="$(find steve_control)/config/local_ekf.yaml"/>
+    <remap from="/odometry/filtered" to="/local_ekf/odom" />
+  </node>
+
+  <node name="global_ekf" pkg="robot_localization" type="ekf_localization_node" >
+    <rosparam command="load" file="$(find steve_control)/config/global_ekf.yaml"/>
+    <remap from="/odometry/filtered" to="/global_ekf/odom" />
+  </node>
+
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
+    <param name="zero_altitude" value="true" />
+    <param name="magnetic_declination_radians" value="0"/>
+    <param name="yaw_offset" value="0"/>  <!-- Change depending on location and date -->
+    <remap from="/gps/fix" to="/fix" />
+    <remap from="/odometry/filtered" to="/global_ekf/odom" />
+  </node>
+
 </launch>

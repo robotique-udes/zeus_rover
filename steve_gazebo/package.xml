@@ -13,6 +13,10 @@
   <depend>rospy</depend>
   <depend>std_msgs</depend>
   <depend>gazebo_ros</depend>
+  <depend>gazebo_plugins</depend>
+  <depend>gazebo_ros_control</depend>
+  <depend>gazebo_ros_pkgs</depend>
+  <depend>hector_gazebo_plugins</depend>
 
   <export>
     <gazebo_ros gazebo_model_path="${prefix}/models"/>
