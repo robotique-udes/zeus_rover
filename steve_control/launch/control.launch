@@ -5,6 +5,12 @@
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> 
+
+  <node name="twist_mux" pkg="twist_mux" type="twist_mux">
+    <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
+    <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
+  </node>
+    
 
 </launch>
