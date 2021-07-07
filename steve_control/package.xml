@@ -17,11 +17,6 @@
   <depend>twist_mux</depend>
   <depend>robot_localization</depend>
   <depend>rtabmap_ros</depend>
-<<<<<<< HEAD
-  
-=======
-  
->>>>>>> origin/main
 
   <export>
   </export>
