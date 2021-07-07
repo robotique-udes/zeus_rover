@@ -14,7 +14,12 @@
   <depend>std_msgs</depend>
   <depend>joint_state_publisher</depend>
   <depend>robot_state_publisher</depend>
+<<<<<<< HEAD
   <depend>twist_mux</depend>
+=======
+  <depend>robot_localization</depend>
+  <depend>rtabmap_ros</depend>
+>>>>>>> origin/main
 
   <export>
   </export>
