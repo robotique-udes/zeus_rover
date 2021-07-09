@@ -1,7 +1,3 @@
 <launch>
-    <node name="web_video_server" pkg="web_video_server" type="web_video_server" >
-        <!-- <param name="quality" value="80" />
-        <param name="default_transport" value="raw"/> -->
-    </node>
-
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server" />
 </launch>
