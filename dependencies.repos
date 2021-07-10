@@ -7,6 +7,10 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/steve_rover.git
     version: main
+  steve_safety_brake:
+    type: git
+    url: git@github.com:STEVE-Rover/steve_safety_brake.git
+    version: main
   steve_teleop:
     type: git
     url: git@github.com:STEVE-Rover/steve_teleop.git
