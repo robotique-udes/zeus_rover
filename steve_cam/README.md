@@ -6,7 +6,7 @@ Launch file to stream the camera image feed as a ROS image_raw topic and a compr
 
 ### Usage
 1. Change the camera setings in `launch/camera.launch`
-2. `roslauch steve_camera camera.launch`
+2. `roslaunch steve_cam camera.launch`
 
 ## web_video_server
 HTTP Streaming of ROS Image Topics in Multiple Formats.
