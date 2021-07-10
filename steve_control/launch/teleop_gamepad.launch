@@ -6,6 +6,7 @@
     </node>
 
     <node name="teleop_gamepad" type="teleop_gamepad" pkg="steve_teleop" output="screen">
+        <remap from="cmd_vel" to="gamepad_cmd_vel" />
         <param name="linear_vel_axis" value="1" />
         <param name="angular_vel_axis" value="0" />
         <param name="deadman_switch" value="5" />
