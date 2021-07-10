@@ -1,0 +1,17 @@
+repositories:
+  ros_rtsp:
+    type: git
+    url: git@github.com:CircusMonkey/ros_rtsp.git
+    version: master
+  steve_rover:
+    type: git
+    url: git@github.com:STEVE-Rover/steve_rover.git
+    version: main
+  steve_teleop:
+    type: git
+    url: git@github.com:STEVE-Rover/steve_teleop.git
+    version: main
+  web_video_server:
+    type: git
+    url: git@github.com:RobotWebTools/web_video_server.git
+    version: develop

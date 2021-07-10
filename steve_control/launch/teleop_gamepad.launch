@@ -1,0 +1,19 @@
+<launch>
+
+    <node name="joy" type="joy_node" pkg="joy" >
+        <param name="dev" value="/dev/input/js0"/>
+        <param name="autorepeat_rate" value="10" />
+    </node>
+
+    <node name="teleop_gamepad" type="teleop_gamepad" pkg="steve_teleop" output="screen">
+        <param name="linear_vel_axis" value="1" />
+        <param name="angular_vel_axis" value="0" />
+        <param name="deadman_switch" value="5" />
+        <param name="turbo_button" value="1" />
+        <param name="max_linear_vel" value="1.5" />  <!-- m/s -->
+        <param name="max_angular_vel" value="1" />  <!-- rad/s -->
+        <param name="turbo_max_linear_vel" value="3" />  <!-- m/s -->
+        <param name="turbo_max_angular_vel" value="1.5" />  <!-- rad/s -->
+    </node>
+    
+</launch>

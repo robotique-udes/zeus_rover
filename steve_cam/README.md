@@ -1,11 +1,6 @@
 # steve_cam
 Contains all launch and configuration files related to the cameras.
 
-## Dependencies
-The following dependencies must be installed from source.
-* [web_video_server](https://github.com/RobotWebTools/web_video_server/tree/develop): needs to be compiled from source since a bug in the package is preventing the h.264 mode from working
-* [ros_rtsp](https://github.com/CircusMonkey/ros_rtsp)
-
 ## camera.launch
 Launch file to stream the camera image feed as a ROS image_raw topic and a compressed (JPEG) topic.
 
