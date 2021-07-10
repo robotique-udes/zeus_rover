@@ -6,9 +6,18 @@
 
 2. If you don't already have one, create a catkin workspace by following [this guide](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
-3. Clone this repo in `~catkin_ws/src/`
+3. Install vcstool: `sudo pip install vcstool`<br>
+    This is a tool that will make it easier to work with multiple repos. 
 
-4. To download dependencies, go to the root of your workspace and execute the following: 
+4. Clone this repo in `~catkin_ws/src/`
+
+5. Install non-ros packages:
+    ```bash
+    cd ~catkin_ws/src/steve_rover
+    ./installations.sh
+    ```
+
+6. Install the official ROS package dependencies with rosdep: 
     ```bash
     rosdep install --from-paths src --ignore-src -r -y
     ```
@@ -22,9 +31,28 @@
     sudo rosdep init
     rosdep update
     ```
+    If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
-5. Go to the root of the workspace and execute `catkin_make`
+7. To clone the other repos:
+    ```bash
+    cd ~catkin_ws/src/
+    vcs import < steve_rover/dependencies.repos
+    ```
+    All of the dependent repos should now be cloned on the right branches
 
+8. Go to the root of the workspace and execute `catkin_make` to compile the packages.
+
+9. If you need to pull all of the repos at once:
+    ```bash
+    cd ~catkin_ws/src/
+    vcs pull
+    ```
+
+10. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
+    ```bash
+    cd ~catkin_ws/src/
+    vcs export > steve_rover/dependencies.repos
+    ```
 ## Launching the Gazebo simulation
 To launch the gazebo simulation, execute this command
 ```bash
@@ -39,7 +67,6 @@ To view only the rover model without gazebo:
 roslaunch steve_viz model.launch
 ```
 To control the rover with a gamepad:
-1. Clone [steve_teleop](https://github.com/STEVE-Rover/steve_teleop) in your workspace and do `catkin_make`
-2. ```bash
-    roslaunch steve_teleop teleop_gamepad.launch
-    ```
+```bash
+roslaunch steve_control teleop_gamepad.launch
+```

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>steve_cam</name>
+  <version>0.0.0</version>
+  <description>The steve_cam package</description>
+
+  <maintainer email="jeremie.bourque@usherbrooke.ca">Jeremie Bourque</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>video_stream_opencv</depend>
+  <depend>web_video_server</depend>
+
+  <export>
+  </export>
+  
+</package>
