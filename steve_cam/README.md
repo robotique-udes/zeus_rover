@@ -13,7 +13,7 @@ HTTP Streaming of ROS Image Topics in Multiple Formats.
 
 ### Usage
 1. `roslaunch steve_cam web_video_server.launch`
-2.  Use one of the following options
+2.  Use one of the following options and replace `{ip_adress}` by `localhost` if you are running it on the same machine or the ip of the remote machine. Also change `{ROS_TOPIC}` by the right image topic.
     * List of available image topics: `http://{ip_adress}:8080/`
     * Video stream URL (mjpeg): `http://{ip_adress}:8080/stream?topic={ROS_TOPIC}&type=mjpeg&quality=80`
     * Video stream URL (h.264): `http://{ip_adress}:8080/stream?topic={ROS_TOPIC}&type=h264&bitrate=1000`
@@ -25,7 +25,7 @@ H.264 RTSP stream.
 ### Usage
 1. Change the stream settings in `config/stream_setup.yaml`
 2. `roslaunch steve_cam rtsp_stream.launch`
-3. View the stream with
+3. View the stream with the following command and replace `<server_ip>` by `localhost` if you are running it on the same machine or the ip of the remote machine.
     ```bash
     gst-launch-1.0 -v rtspsrc location=rtsp://<server_ip>:8554/camera drop-on-latency=true use-pipeline-clock=true do-retransmission=false latency=0 protocols=GST_RTSP_LOWER_TRANS_UDP ! rtph264depay ! h264parse ! avdec_h264 ! autovideosink sync=true
     ```
