@@ -7,12 +7,17 @@
 
 topics:
 -
-  name    : navigation
-  topic   : nav_vel
+  name    : zero_twist
+  topic   : zero_twist
   timeout : 0.5
   priority: 1
 -
+  name    : navigation
+  topic   : nav_vel
+  timeout : 0.5
+  priority: 2
+-
   name    : gamepad
   topic   : gamepad_cmd_vel
-  timeout : 0.5
+  timeout : 0.125
   priority: 255

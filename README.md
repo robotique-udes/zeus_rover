@@ -6,10 +6,15 @@
 
 2. If you don't already have one, create a catkin workspace by following [this guide](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
+3. Add your catkin_ws source to your `.bashrc` file.
+    ```bash
+    echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+    ```
+
 3. Install vcstool: `sudo pip install vcstool`<br>
     This is a tool that will make it easier to work with multiple repos. 
 
-4. Clone this repo in `~catkin_ws/src/`
+4. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
 5. Install non-ros packages:
     ```bash
@@ -33,7 +38,7 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
-7. To clone the other repos:
+7. To clone the other repos using vcstool. (**Note**: the repos will be cloned in SSH):
     ```bash
     cd ~catkin_ws/src/
     vcs import < steve_rover/dependencies.repos
