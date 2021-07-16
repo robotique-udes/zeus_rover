@@ -38,6 +38,11 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
+	6.1 -> Install geometry2 package to have access to obstacle_detector node
+		```bash
+    		sudo apt-get install ros-melodic-geometry2
+    		```
+
 7. To clone the other repos using vcstool. (**Note**: the repos will be cloned in SSH):
     ```bash
     cd ~catkin_ws/src/
