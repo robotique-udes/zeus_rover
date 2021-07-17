@@ -15,6 +15,12 @@
     <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
     <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
   </node>
+
+  <node name="steve_watchdog" pkg="steve_watchdog" type="steve_watchdog">
+    <rosparam file="$(find steve_control)/config/watchdog_topics.yaml" command="load" />
+    <remap from="info" to="watchdog/info" />
+    <remap from="status" to="watchdog/status" />
+  </node>
     
   <!-- Odometry sources -->
   <node name="rgbd_odometry" pkg="rtabmap_ros" type="rgbd_odometry" >
