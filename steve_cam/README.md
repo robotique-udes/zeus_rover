@@ -29,3 +29,19 @@ H.264 RTSP stream.
     ```bash
     gst-launch-1.0 -v rtspsrc location=rtsp://<server_ip>:8554/camera drop-on-latency=true use-pipeline-clock=true do-retransmission=false latency=0 protocols=GST_RTSP_LOWER_TRANS_UDP ! rtph264depay ! h264parse ! avdec_h264 ! autovideosink sync=true
     ```
+
+
+## camera_calibration
+This is a tool to calibrate a camera by using a [checkerboard pattern](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration?action=AttachFile&do=view&target=check-108.pdf).
+
+### Usage
+1. Print the checkerboard pattern and attach it to a rigid surface like a cardboard.
+2. In `camera_calibration.launch` change the size and square arguments to the amount of intersecting corners on the width and height (the number of squares - 1) and the length of a square in meters.
+3. Launch the camera (see camera.launch section)
+4. Move the checkerboard around until enough data is collected
+5. Press on `calibrate` and wait.
+6. Press on save.
+7. Extract `ost.yaml` from `/tmp/calibrationdata.tar.gz` and rename it to whatever you like.
+8. The file can now be used as the camera info for `camera.launch`
+
+

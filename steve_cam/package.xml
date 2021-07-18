@@ -11,6 +11,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <depend>video_stream_opencv</depend>
   <depend>web_video_server</depend>
+  <depend>camera_calibration</depend>
 
   <export>
   </export>
