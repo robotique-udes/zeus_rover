@@ -156,7 +156,7 @@
       <wheelDiameter>${wheel_radius*2}</wheelDiameter>
       <robotBaseFrame>base_link</robotBaseFrame>
       <torque>20</torque>
-      <commandTopic>cmd_vel_out</commandTopic>
+      <commandTopic>cmd_vel_watchdog</commandTopic>
       <odometryTopic>base_odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <covariance_x>0.0001</covariance_x>
