@@ -23,7 +23,3 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/steve_watchdog.git
     version: main
-  steve_obstacle_detector:
-    type: git
-    url: git@github.com:STEVE-Rover/steve_obstacle_detector.git
-    version: main

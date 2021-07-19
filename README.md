@@ -38,10 +38,6 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
-    7.1 Downloading *pointcloud_to_laserscan* package for obstacle detection
-    ```bash
-    sudo apt-get install ros-melodic-pointcloud-to-laserscan
-    ```
 
 8. To clone the other repos using vcstool. (**Note**: the repos will be cloned in SSH):
     ```bash
