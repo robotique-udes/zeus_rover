@@ -26,4 +26,4 @@ repositories:
   steve_obstacle_detector:
     type: git
     url: git@github.com:STEVE-Rover/steve_obstacle_detector.git
-    version: master
+    version: main
