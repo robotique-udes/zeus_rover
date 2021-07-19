@@ -14,6 +14,15 @@
   <node name="twist_mux" pkg="twist_mux" type="twist_mux">
     <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
     <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
+    <remap from="cmd_vel_out" to="cmd_vel_mux" />
+  </node>
+
+  <node name="steve_watchdog" pkg="steve_watchdog" type="steve_watchdog">
+    <rosparam file="$(find steve_control)/config/watchdog_topics.yaml" command="load" />
+    <remap from="info" to="watchdog/info" />
+    <remap from="status" to="watchdog/status" />
+    <remap from="cmd_vel_in" to="cmd_vel_mux" />
+    <remap from="cmd_vel_out" to="cmd_vel_watchdog" />
   </node>
     
   <!-- Odometry sources -->
