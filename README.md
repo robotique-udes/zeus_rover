@@ -11,18 +11,18 @@
     echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
     ```
 
-3. Install vcstool: `sudo pip install vcstool`<br>
+4. Install vcstool: `sudo pip install vcstool`<br>
     This is a tool that will make it easier to work with multiple repos. 
 
-4. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+5. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
-5. Install non-ros packages:
+6. Install non-ros packages:
     ```bash
     cd ~catkin_ws/src/steve_rover
     ./installations.sh
     ```
 
-6. Install the official ROS package dependencies with rosdep: 
+7. Install the official ROS package dependencies with rosdep: 
     ```bash
     rosdep install --from-paths src --ignore-src -r -y
     ```
@@ -38,22 +38,23 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
-7. To clone the other repos using vcstool. (**Note**: the repos will be cloned in SSH):
+
+8. To clone the other repos using vcstool. (**Note**: the repos will be cloned in SSH):
     ```bash
     cd ~catkin_ws/src/
     vcs import < steve_rover/dependencies.repos
     ```
     All of the dependent repos should now be cloned on the right branches
 
-8. Go to the root of the workspace and execute `catkin_make` to compile the packages.
+9. Go to the root of the workspace and execute `catkin_make` to compile the packages.
 
-9. If you need to pull all of the repos at once:
+10. If you need to pull all of the repos at once:
     ```bash
     cd ~catkin_ws/src/
     vcs pull
     ```
 
-10. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
+11. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
     ```bash
     cd ~catkin_ws/src/
     vcs export > steve_rover/dependencies.repos
