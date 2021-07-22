@@ -3,10 +3,12 @@ Package containing launch and configuration files for autonomous navigation
 
 ## move_base
 move_base is the default ROS package for autonomous navigation.
-Launch with:
-```bash
-roslaunch steve_nav move_base.launch
-```
+#### Usage
+1. Launch the rover or gazebo simulation
+2. Launch move_base with:
+    ```bash
+    roslaunch steve_nav move_base.launch
+    ```
 You should now see costmaps appearing in RViz and MapViz.
 
 ### Sending a goal in RViz:
