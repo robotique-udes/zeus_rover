@@ -16,7 +16,7 @@
 
 5. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
-6. Install non-ros packages:
+6. Install non-ros packages: 
     ```bash
     cd ~catkin_ws/src/steve_rover
     ./installations.sh
