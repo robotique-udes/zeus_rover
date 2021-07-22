@@ -1,0 +1,16 @@
+target_frame: base_link
+
+min_height: 0.5
+max_height: 1.0
+
+angle_min: -0.786 # -pi/4
+angle_max: 0.786 # pi/4
+
+range_min: 0.2 # meters
+range_max: 10 # meters
+
+angle_increment: 0.0087 # pi/360
+scan_time: 0.333 # seconds
+
+concurrency_level: 1 #0 if use all available cores, 1 single threaded, 2 -> inf parallelism
+use_inf: true

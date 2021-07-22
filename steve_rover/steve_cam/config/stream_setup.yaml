@@ -1,0 +1,8 @@
+port: "8554"
+streams:
+  camera:        # Can name this whatever you choose
+    type: topic             # topic - Image is sourced from a sensor_msgs::Image topic
+    source: /camera/image_raw  # The ROS topic to subscribe to
+    mountpoint: /camera      # Choose the mountpoint for the rtsp stream. This will be able to be accessed from rtsp://<server_ip>/back
+    caps: video/x-raw,framerate=10/1,width=1280,height=720  # Set the caps to be applied after getting the ROS Image and before the x265 encoder.
+    bitrate: 1000
