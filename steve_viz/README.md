@@ -26,3 +26,6 @@ roslaunch steve_viz mapviz.launch
 ```
 
 To change the origin coordinate, change the value of `local_xy_origin` to the name of a location in the list. You can add as many locations to the list as you want.
+
+### Offline support
+To download the Google Maps satellite images you need to be connected to the internet. However, downloaded images are cached in `~/mapproxy/cached_data` and are available offline.
