@@ -11,8 +11,8 @@
         <rosparam file="$(find steve_nav)/config/planner.yaml" command="load" />
         <rosparam file="$(find steve_nav)/config/costmap_common.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find steve_nav)/config/costmap_common.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find rover_nav)/config/costmap_local.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find rover_nav)/config/costmap_global.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find steve_nav)/config/costmap_local.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find steve_nav)/config/costmap_global.yaml" command="load" ns="global_costmap" />
     </node>
 
 </launch>
