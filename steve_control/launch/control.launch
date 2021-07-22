@@ -11,7 +11,12 @@
     <param name="rate" value="10" />
   </node>
 
-  <include file="$(find steve_nav)/launch/obstacle_detector.launch"/>
+  <!-- obstacle detector node, converts pointcloud into laserscan -->
+  <node name="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan" output="screen">
+        <remap from="cloud_in" to="/d435/depth/color/points"/>
+        <remap from="scan" to="/obstacle_detector/scan"/>
+        <rosparam command="load" file="$(find steve_nav)/config/laserscan_parameters.yaml" />     
+    </node>
 
   <!-- Twist Multiplexer -->
   <node name="twist_mux" pkg="twist_mux" type="twist_mux">
