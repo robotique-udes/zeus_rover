@@ -12,6 +12,10 @@
   <depend>roscpp</depend>
   <depend>rospy</depend>
   <depend>std_msgs</depend>
+  <depend>mapviz</depend>
+  <depend>mapviz_plugins</depend>
+  <depend>tile_map</depend>
+  <depend>multires_image</depend>
 
   <export>
   </export>
