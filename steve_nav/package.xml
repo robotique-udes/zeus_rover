@@ -15,6 +15,10 @@
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>pointcloud_to_laserscan</depend>
+  <depend>move_base</depend>
+  <depend>navfn</depend>
+  <depend>base_local_planner</depend>
+  <depend>dwa_local_planner</depend>
 
   <export>
   </export>
