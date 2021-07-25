@@ -12,7 +12,6 @@
   </node>
 
   <!-- obstacle detector node, converts pointcloud into laserscan -->
-
   <node name="obstacle_detector_PC_to_LS" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan" output="screen">
         <remap from="cloud_in" to="/d435/depth/color/points"/>
         <remap from="scan" to="/obstacle_detector/scan"/>
@@ -24,6 +23,17 @@
     <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
     <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
     <remap from="cmd_vel_out" to="cmd_vel_mux" />
+  </node>
+  
+  <!-- Safety_break -->
+  <node name="safety_brake" type="safety_brake" pkg="steve_safety_brake" output="screen">
+        <remap from="cmd_vel_in" to="cmd_vel_watchdog"/>
+        <remap from="laserscan" to="obstacle_detector/scan"/>
+        <remap from="status" to="status/safety_break"/>
+        <remap from="cmd_vel_safety_brake" to="cmd_vel_out"/>
+
+        <param name="safety_width" value="1.2" />
+        <param name="safety_length" value="1.75" />
   </node>
 
   <node name="steve_watchdog" pkg="steve_watchdog" type="steve_watchdog">
