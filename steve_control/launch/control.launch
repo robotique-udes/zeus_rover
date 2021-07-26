@@ -29,17 +29,17 @@
   <node name="safety_brake" type="safety_brake" pkg="steve_safety_brake" output="screen">
         <remap from="cmd_vel_in" to="cmd_vel_watchdog"/>
         <remap from="laserscan" to="obstacle_detector/scan"/>
-        <remap from="status" to="status/safety_break"/>
+        <remap from="status" to="safety_break/status"/>
         <remap from="cmd_vel_safety_brake" to="cmd_vel_out"/>
 
         <param name="safety_width" value="1.2" />
-        <param name="safety_length" value="1.75" />
+        <param name="safety_length" value="3" />
   </node>
 
   <node name="steve_watchdog" pkg="steve_watchdog" type="steve_watchdog">
     <rosparam file="$(find steve_control)/config/watchdog_topics.yaml" command="load" />
-    <remap from="info" to="info/watchdog" />
-    <remap from="status" to="status/watchdog" />
+    <remap from="info" to="watchdog/info" />
+    <remap from="status" to="watchdog/status" />
     <remap from="cmd_vel_in" to="cmd_vel_mux" />
     <remap from="cmd_vel_out" to="cmd_vel_watchdog" />
   </node>
