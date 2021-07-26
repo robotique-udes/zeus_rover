@@ -1,5 +1,5 @@
 <launch>
-    <node name="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan" output="screen">
+    <node name="obstacle_detector_PC_to_LS" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan" output="screen">
         <remap from="cloud_in" to="/d435/depth/color/points"/>
         <remap from="scan" to="/obstacle_detector/scan"/>
         <rosparam command="load" file="$(find steve_nav)/config/laserscan_parameters.yaml" />     
