@@ -15,11 +15,15 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/steve_teleop.git
     version: main
-  web_video_server:
-    type: git
-    url: git@github.com:RobotWebTools/web_video_server.git
-    version: develop
   steve_watchdog:
     type: git
     url: git@github.com:STEVE-Rover/steve_watchdog.git
     version: main
+  urc_2022_aruco_markers:
+    type: git
+    url: git@github.com:STEVE-Rover/urc_2022_aruco_markers.git
+    version: main
+  web_video_server:
+    type: git
+    url: git@github.com:RobotWebTools/web_video_server.git
+    version: develop
