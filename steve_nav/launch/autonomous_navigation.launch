@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <include file="$(find steve_nav)/launch/obstacle_detector_simple.launch" /> -->
+    <include file="$(find steve_nav)/launch/obstacle_detector.launch"/>
+    <include file="$(find steve_nav)/launch/move_base.launch"/>
+</launch>
