@@ -3,6 +3,9 @@
 
   <include file="$(find steve_description)/launch/description.launch" />
 
+  <!-- test cam zed -->
+  <!-- <include file="$(find steve_cam)/launch/zed.launch" /> -->
+
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> 
@@ -12,11 +15,14 @@
   </node>
 
   <!-- obstacle detector node, converts pointcloud into laserscan -->
+  <include file="$(find steve_nav)/launch/obstacle_detector.launch"/>
+  <!--
   <node name="obstacle_detector_PC_to_LS" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan" output="screen">
         <remap from="cloud_in" to="/d435/depth/color/points"/>
         <remap from="scan" to="/obstacle_detector/scan"/>
         <rosparam command="load" file="$(find steve_nav)/config/laserscan_parameters.yaml" />     
     </node>
+  -->
 
   <!-- Twist Multiplexer -->
   <node name="twist_mux" pkg="twist_mux" type="twist_mux">
@@ -36,6 +42,7 @@
         <param name="safety_length" value="3" />
   </node>
 
+  <!-- Watchdog -->
   <node name="steve_watchdog" pkg="steve_watchdog" type="steve_watchdog">
     <rosparam file="$(find steve_control)/config/watchdog_topics.yaml" command="load" />
     <remap from="info" to="watchdog/info" />
