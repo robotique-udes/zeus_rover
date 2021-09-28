@@ -1,8 +1,8 @@
 <launch>
     <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
     <node pkg="nodelet" type="nodelet" name="voxel_grid" args="standalone pcl/VoxelGrid" output="screen">
-        <remap from="~input" to="/zed/zed_node/point_cloud/cloud_registered" />
-        <!--<remap from="~input" to="/d435/depth/color/points"/> -->
+        <!--<remap from="~input" to="/zed/zed_node/point_cloud/cloud_registered" /> -->
+        <remap from="~input" to="/d435/depth/color/points"/> 
         <rosparam>
             filter_field_name: y
             filter_limit_min: 0.01
