@@ -44,4 +44,10 @@ This is a tool to calibrate a camera by using a [checkerboard pattern](http://wi
 7. Extract `ost.yaml` from `/tmp/calibrationdata.tar.gz` and rename it to whatever you like.
 8. The file can now be used as the camera info for `camera.launch`
 
+## aruco_detect
+Used to detect the pose of aruco tags
+### Usage
+1. `roslaunch steve_cam aruco_detect.launch`
+2. Look at the output image topic to see detected tags
+3. (Optional) In Gazebo, import the models named `urc_aruco_X` to test in simulation
 

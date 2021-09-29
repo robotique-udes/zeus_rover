@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="aruco_detect" type="aruco_detect" pkg="aruco_detect" >
+        <remap from="camera" to="camera1/image_raw"/>
+        <remap from="camera_info" to="camera1/camera_info"/>
+        <param name="dictionary" value="0" />
+        <param name="fiducial_len" value="0.2" />
+        <param name="publish_images" value="true" />
+    </node>
+</launch>

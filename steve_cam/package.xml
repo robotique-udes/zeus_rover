@@ -12,6 +12,7 @@
   <depend>video_stream_opencv</depend>
   <depend>web_video_server</depend>
   <depend>camera_calibration</depend>
+  <depend>aruco_detect</depend>
 
   <export>
   </export>
