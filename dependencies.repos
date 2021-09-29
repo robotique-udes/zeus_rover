@@ -1,4 +1,8 @@
 repositories:
+  gps_goal:
+    type: git
+    url: git@github.com:STEVE-Rover/gps_goal.git
+    version: master
   ros_rtsp:
     type: git
     url: git@github.com:CircusMonkey/ros_rtsp.git
