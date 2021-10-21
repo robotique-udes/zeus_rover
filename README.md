@@ -11,18 +11,15 @@
     echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
     ```
 
-4. Install vcstool: `sudo pip install vcstool`<br>
-    This is a tool that will make it easier to work with multiple repos. 
+4. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
-5. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
-
-6. Install non-ros packages: 
+5. Install non-ros packages: 
     ```bash
     cd ~catkin_ws/src/steve_rover
     ./installations.sh
     ```
 
-7. Install the official ROS package dependencies with rosdep: 
+6. Install the official ROS package dependencies with rosdep: 
     ```bash
     rosdep install --from-paths src --ignore-src -r -y
     ```
@@ -39,22 +36,22 @@
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
 
-8. To clone the other repos using vcstool. (**Note**: there are two dependency lists, one in SSH and the other in HTTPS. For development, SSH is recommended):
+7. Clone the other repos using vcstool. (**Note**: there are two dependency lists, one in SSH and the other in HTTPS. For development, SSH is recommended):
     ```bash
     cd ~catkin_ws/src/
     vcs import < steve_rover/dependencies_ssh.repos
     ```
     All of the dependent repos should now be cloned on the right branches
 
-9. Go to the root of the workspace and execute `catkin_make` to compile the packages.
+8. Go to the root of the workspace and execute `catkin_make` to compile the packages.
 
-10. If you need to pull all of the repos at once:
+9. If you need to pull all of the repos at once:
     ```bash
     cd ~catkin_ws/src/
     vcs pull
     ```
 
-11. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
+10. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
     ```bash
     cd ~catkin_ws/src/
     vcs export > steve_rover/dependencies_ssh.repos

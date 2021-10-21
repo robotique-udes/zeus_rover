@@ -24,3 +24,5 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 # Setup mapproxy
 mkdir ~/mapproxy
+
+sudo apt install python3-pip vcstool
