@@ -16,7 +16,7 @@
 5. Install non-ros packages: 
     ```bash
     cd ~catkin_ws/src/steve_rover
-    ./installations.sh
+    ./installation_dev.sh  # Or ./installation_jetson.sh if you are installing this on a Jetson
     ```
 
 6. Install the official ROS package dependencies with rosdep: 
