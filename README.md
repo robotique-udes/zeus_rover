@@ -19,7 +19,28 @@
     ./installation_dev.sh  # Or ./installation_jetson.sh if you are installing this on a Jetson
     ```
 
-6. Install the official ROS package dependencies with rosdep: 
+6. Clone the other repos using vcstool. (**Note**: there are two dependency lists, one in SSH and the other in HTTPS. For development, SSH is recommended):
+    ```bash
+    cd ~catkin_ws/src/
+    vcs import < steve_rover/dependencies_ssh.repos
+    ```
+    All of the dependent repos should now be cloned on the right branches
+
+    * If you need to pull all of the repos at once:
+        ```bash
+        cd ~catkin_ws/src/
+        vcs pull
+        ```
+
+    * If you have added a repo and need to add it to the list of dependencies, first clone it, then:
+        ```bash
+        cd ~catkin_ws/src/
+        vcs export > steve_rover/dependencies_ssh.repos
+        ```
+        **Important**: When modifying the dependency list, make sure that the HTTPS AND SSH lists are identical except for the url prefixes.
+        **Important**: This repo should not be in the list since it is already cloned when importing.
+
+7. Install the official ROS package dependencies with rosdep: 
     ```bash
     rosdep install --from-paths src --ignore-src -r -y
     ```
@@ -35,28 +56,7 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
-
-7. Clone the other repos using vcstool. (**Note**: there are two dependency lists, one in SSH and the other in HTTPS. For development, SSH is recommended):
-    ```bash
-    cd ~catkin_ws/src/
-    vcs import < steve_rover/dependencies_ssh.repos
-    ```
-    All of the dependent repos should now be cloned on the right branches
-
 8. Go to the root of the workspace and execute `catkin_make` to compile the packages.
-
-9. If you need to pull all of the repos at once:
-    ```bash
-    cd ~catkin_ws/src/
-    vcs pull
-    ```
-
-10. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
-    ```bash
-    cd ~catkin_ws/src/
-    vcs export > steve_rover/dependencies_ssh.repos
-    ```
-    **Important**: When modifying the dependency list, make sure that the HTTPS AND SSH lists are identical except for the url prefixes.
 ## Launching the Gazebo simulation
 To launch the gazebo simulation, execute this command
 ```bash
