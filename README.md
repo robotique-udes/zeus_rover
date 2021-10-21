@@ -39,10 +39,10 @@
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
 
-8. To clone the other repos using vcstool. (**Note**: the repos will be cloned in SSH):
+8. To clone the other repos using vcstool. (**Note**: there are two dependency lists, one in SSH and the other in HTTPS. For development, SSH is recommended):
     ```bash
     cd ~catkin_ws/src/
-    vcs import < steve_rover/dependencies.repos
+    vcs import < steve_rover/dependencies_ssh.repos
     ```
     All of the dependent repos should now be cloned on the right branches
 
@@ -57,8 +57,9 @@
 11. If you have added a repo and need to add it to the list of dependencies, first clone it, then:
     ```bash
     cd ~catkin_ws/src/
-    vcs export > steve_rover/dependencies.repos
+    vcs export > steve_rover/dependencies_ssh.repos
     ```
+    **Important**: When modifying the dependency list, make sure that the HTTPS AND SSH lists are identical except for the url prefixes.
 ## Launching the Gazebo simulation
 To launch the gazebo simulation, execute this command
 ```bash
