@@ -27,3 +27,7 @@ repositories:
     type: git
     url: git@github.com:RobotWebTools/web_video_server.git
     version: develop
+  i2c_imu:
+    type: git
+    url: git@github.com:jeskesen/i2c_imu.git
+    version: master

@@ -1,7 +1,10 @@
 # steve_rover
 
 ## Installation
-**Tested with ROS Melodic running on Ubuntu 18.04.**
+**Tested with ROS Melodic running on Ubuntu 18.04.***
+
+**Note**: If you are installing this on a Jetson computer, follow [these instructions](jetson_xavier_nx_setup.md) first to properly it up before doing the rest of the steps.
+
 1. Install [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
 2. If you don't already have one, create a catkin workspace by following [this guide](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
@@ -56,7 +59,24 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
 
-8. Go to the root of the workspace and execute `catkin_make` to compile the packages.
+8. Compile and install the RTIMULib2 library, which is necessary for the `i2c_imu` package.
+    ```bash
+    mkdir ~/dev && cd ~/dev
+    git clone https://github.com/RTIMULib/RTIMULib2.git
+    cd RTIMULib2/RTIMULib
+    mkdir build && cd build
+    cmake ..
+    make -j8
+    # Checkinstall creates a deb package before installing, meaning it can
+    # easily be uninstalled with a package manager.
+    # To install checkinstall: sudo apt install checkinstall
+    sudo checkinstall # Follow instructions
+    # OR
+    sudo make install
+    ```
+    
+9. Go to the root of the workspace and execute `catkin_make` to compile the packages.
+
 ## Launching the Gazebo simulation
 To launch the gazebo simulation, execute this command
 ```bash
