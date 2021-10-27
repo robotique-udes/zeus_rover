@@ -17,6 +17,7 @@
   <depend>twist_mux</depend>
   <depend>robot_localization</depend>
   <depend>rtabmap_ros</depend>
+  <depend>ddynamic_reconfigure_python</depend>
 
   <export>
   </export>
