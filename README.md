@@ -63,16 +63,12 @@
     ```bash
     mkdir ~/dev && cd ~/dev
     git clone https://github.com/RTIMULib/RTIMULib2.git
-    cd RTIMULib2/RTIMULib
+    cd RTIMULib2/Linux
     mkdir build && cd build
     cmake ..
     make -j8
-    # Checkinstall creates a deb package before installing, meaning it can
-    # easily be uninstalled with a package manager.
-    # To install checkinstall: sudo apt install checkinstall
-    sudo checkinstall # Follow instructions
-    # OR
     sudo make install
+    su ldconfig
     ```
     
 9. Go to the root of the workspace and execute `catkin_make` to compile the packages.
@@ -94,3 +90,7 @@ To control the rover with a gamepad:
 ```bash
 roslaunch steve_control teleop_gamepad.launch
 ```
+
+## IMU Calibration
+RTIMULib2 comes with GUI and console based applications to view IMU data and calibrate the accelerometer and magnetometer.
+In a terminal, type `RTIMULib` and hit tab twice to see what is available. See [this guide](https://github.com/RTIMULib/RTIMULib2/blob/master/Calibration.pdf) for more information on how to calibrate.
