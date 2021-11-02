@@ -15,7 +15,7 @@ add_message_files(
   list_gps_goals.msg
 )
 
-catkin_python_setup()
+#catkin_python_setup()
 
 generate_messages(
   DEPENDENCIES
