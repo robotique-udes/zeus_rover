@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="i2c_imu" type="i2c_imu_node" name="i2c_imu" output="screen" >
+	    <rosparam file="$(find steve_control)/config/mpu9250.yaml"/>		
+	</node>        
+</launch>

@@ -15,7 +15,7 @@ cd RTIMULib2/Linux
 mkdir build && cd build
 cmake ..
 make -j4
-#sudo make install
+sudo make install
 
 # Install gstreamer
 sudo apt-get install -y libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev \
