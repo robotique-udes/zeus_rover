@@ -82,3 +82,16 @@ roslaunch steve_control teleop_gamepad.launch
 ## IMU Calibration
 RTIMULib2 comes with GUI and console based applications to view IMU data and calibrate the accelerometer and magnetometer.
 In a terminal, type `RTIMULib` and hit tab twice to see what is available. See [this guide](https://github.com/RTIMULib/RTIMULib2/blob/master/Calibration.pdf) for more information on how to calibrate.
+
+The calibration needs to be done whenever there is a change in the IMU's environment, since the magnetometer is very sensitive to magnetic variations.
+
+Ideally, you'll want to use `RTIMULibCal`, which is uses a command line interface instead of a GUI. That way you can easily do the calibration via SSH. 
+
+**Important**: to avoid an error while doing ellipsoid calibration, you'll want to run `RTIMULibCal` from the `RTEllipsoidFit` folder located where you cloned the RTIMULib2 repo. For example:
+```bash
+cd ~/dev/RTIMULib2/RTEllipsoidFit/
+RTIMULibCal
+```
+The calibration data will also be saved in that folder with the name `RTIMULib.ini`.
+
+That calibration file can then be converted to a yaml file that the `i2c_imu` ROS package will understand. For more information on how to do that, refer to the [package's documentation](https://github.com/JeremieBourque1/i2c_imu).
