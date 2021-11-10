@@ -15,6 +15,13 @@
 	    <rosparam file="$(find steve_control)/config/mpu9250.yaml"/>
       <remap from="data" to="imu/data"/>		
 	  </node>
+
+    <!-- Launch gps -->
+    <!-- Do not forget to give access to the port : sudo chmod 666 /dev/ttyTHS1 -->
+    <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="nmea_serial_driver" output="screen"> 
+      <param name="port" value="/dev/ttyACM0" />
+      <param name="baud" value="38400" />
+    </node>
   </group>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />

@@ -1,5 +1,7 @@
 # steve_rover
-
+## Devices used
+* [DSD TECH MPU-9250 IMU](https://www.amazon.ca/gp/product/B07TV4L6HT/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&psc=1)
+* Emlid GPS receiver ([setup instruction](Emlid_Reach_GPS_setup.md))
 ## Installation
 **Tested with ROS Melodic running on Ubuntu 18.04.***
 
