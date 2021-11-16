@@ -18,7 +18,7 @@ raytrace_range: 6.0
 
 obstacle_layer:
     observation_sources: laser_scan
-    laser_scan: {data_type: LaserScan, topic: /obstacle_detector/scan, marking: true, clearing: true, sensor_frame: base_link} 
+    laser_scan: {data_type: LaserScan, topic: /obstacle_detector/scan, marking: true, clearing: true, sensor_frame: base_link, inf_is_valid: true} 
 
 inflation_layer:
     inflation_radius: 1.0
