@@ -33,6 +33,13 @@ This guide will show you how to set up the Jetson Xavier NX for the Zeus rover w
     ```
     source: https://answers.ros.org/question/199279/installation-from-source-fails-because-of-cv_bridge-include-dir/
 
+6. Disable the `nvgetty` service to avoid problems with the UART port.
+    ```bash
+    systemctl stop nvgetty
+    systemctl disable nvgetty
+    ```
+    Reboot to apply the changes
+
 ## Wiring
 This is the pinout of the GPIO on a Jetson Xavier NX. Pin 1 is the one closest to the IO ports. Source: https://www.jetsonhacks.com/nvidia-jetson-xavier-nx-gpio-header-pinout/
 ![Jetson Xavier NX GPIO pinout](images/Jetson_Xavier_NX_GPIO_Pinout.png?raw=true "Jetson Xavier NX GPIO pinout")
@@ -43,6 +50,14 @@ This is the pinout of the GPIO on a Jetson Xavier NX. Pin 1 is the one closest t
 | GND          | 6             |
 | SCL/SCLK     | 28 (I2C Bus 1)|
 | SDA/SDI      | 27 (I2C Bus 1)|
+
+### Emlid Reach module
+| Module pin | Jetson pin |
+| -----------| -----------|
+| 5V         | 2          |
+| GND        | 9          |
+| TX         | 10         |
+| RX         | 8          |
 
 
 ## Conclusion
