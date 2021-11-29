@@ -29,5 +29,5 @@ repositories:
     version: develop
   i2c_imu:
     type: git
-    url: https://github.com/jeskesen/i2c_imu.git
+    url: https://github.com/JeremieBourque1/i2c_imu.git
     version: master

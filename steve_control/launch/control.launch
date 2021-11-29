@@ -1,10 +1,21 @@
 <?xml version='1.0'?>
 <launch>
 
+  <arg name="simulation" default="false"/>
+
   <include file="$(find steve_description)/launch/description.launch" />
 
-  <!-- test cam zed -->
-  <!-- <include file="$(find steve_cam)/launch/zed.launch" /> -->
+  <!-- Sensors -->
+  <group unless="$(arg simulation)">
+    <!-- test cam zed -->
+    <!-- <include file="$(find steve_cam)/launch/zed.launch" /> -->
+
+    <!-- IMU -->
+    <node pkg="i2c_imu" type="i2c_imu_node" name="imu" output="screen" >
+	    <rosparam file="$(find steve_control)/config/mpu9250.yaml"/>
+      <remap from="data" to="imu/data"/>		
+	  </node>
+  </group>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 

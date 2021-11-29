@@ -16,10 +16,10 @@
 
 4. Clone this repo in `~catkin_ws/src/`. It is recommended that you clone it in SSH instead of HTTPS since you don't to enter a user and password every time you commit. [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
-5. Install non-ros packages: 
+5. Install non-ros dependencies: 
     ```bash
     cd ~catkin_ws/src/steve_rover
-    ./installation_dev.sh  # Or ./installation_jetson.sh if you are installing this on a Jetson
+    ./installation.sh
     ```
 
 6. Clone the other repos using vcstool. (**Note**: there are two dependency lists, one in SSH and the other in HTTPS. For development, SSH is recommended):
@@ -58,18 +58,6 @@
     rosdep update
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
-
-8. Compile and install the RTIMULib2 library, which is necessary for the `i2c_imu` package.
-    ```bash
-    mkdir ~/dev && cd ~/dev
-    git clone https://github.com/RTIMULib/RTIMULib2.git
-    cd RTIMULib2/Linux
-    mkdir build && cd build
-    cmake ..
-    make -j8
-    sudo make install
-    su ldconfig
-    ```
     
 9. Go to the root of the workspace and execute `catkin_make` to compile the packages.
 
@@ -94,3 +82,16 @@ roslaunch steve_control teleop_gamepad.launch
 ## IMU Calibration
 RTIMULib2 comes with GUI and console based applications to view IMU data and calibrate the accelerometer and magnetometer.
 In a terminal, type `RTIMULib` and hit tab twice to see what is available. See [this guide](https://github.com/RTIMULib/RTIMULib2/blob/master/Calibration.pdf) for more information on how to calibrate.
+
+The calibration needs to be done whenever there is a change in the IMU's environment, since the magnetometer is very sensitive to magnetic variations.
+
+Ideally, you'll want to use `RTIMULibCal`, which is uses a command line interface instead of a GUI. That way you can easily do the calibration via SSH. 
+
+**Important**: to avoid an error while doing ellipsoid calibration, you'll want to run `RTIMULibCal` from the `RTEllipsoidFit` folder located where you cloned the RTIMULib2 repo. For example:
+```bash
+cd ~/dev/RTIMULib2/RTEllipsoidFit/
+RTIMULibCal
+```
+The calibration data will also be saved in that folder with the name `RTIMULib.ini`.
+
+That calibration file can then be converted to a yaml file that the `i2c_imu` ROS package will understand. For more information on how to do that, refer to the [package's documentation](https://github.com/JeremieBourque1/i2c_imu).
