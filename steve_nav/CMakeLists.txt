@@ -10,19 +10,8 @@ find_package(catkin REQUIRED COMPONENTS
   pointcloud_to_laserscan
 )
 
-add_message_files(
-  FILES
-  list_gps_goals.msg
-)
-
 #catkin_python_setup()
 
-generate_messages(
-  DEPENDENCIES
-  sensor_msgs
-)
-
-catkin_package(CATKIN_DEPENDS message_runtime)
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
