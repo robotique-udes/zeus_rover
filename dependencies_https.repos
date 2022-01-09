@@ -31,3 +31,15 @@ repositories:
     type: git
     url: https://github.com/JeremieBourque1/i2c_imu.git
     version: master
+  zeus_mobile_base_controller:
+    type: git
+    url: https://github.com/STEVE-Rover/zeus_mobile_base_controller.git
+    version: master
+  ros_talon:
+    type: git
+    url:https://github.com/STEVE-Rover/ros_talon.git
+    version: master
+  zeus_arm:
+    type: git
+    url: https://github.com/STEVE-Rover/zeus_arm.git
+    version: master
