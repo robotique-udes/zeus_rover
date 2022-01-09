@@ -34,6 +34,10 @@
       <param name="motor_nb" value="6" />
     </node> 
 
+    <node pkg="zeus_mobile_base_controller" type="odom_publisher.py" name="odom_publisher">
+        <remap from="odom" to="base_odom"/>
+    </node>
+
   </group>
 
   <group if="$(arg simulation)">
@@ -73,6 +77,10 @@
       respawn="true"
       respawn_delay="1">
     </node>
-    
+
+    <node pkg="zeus_mobile_base_controller" type="odom_publisher_sim.py" name="odom_publisher_sim">
+        <remap from="odom" to="base_odom"/>
+    </node>
+
   </group>
 </launch>

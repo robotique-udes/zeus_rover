@@ -35,9 +35,9 @@
   <!-- Twist to motor commands -->
   <node pkg="zeus_mobile_base_controller" type="twist2motor_cmd.py" name="twist2motor_cmd" >
     <remap from="cmd_vel" to="cmd_vel_out"/>
-    <param name="max_motor_cmd" value="3.0"/>
-    <param name="angular_gain" value="-1.0"/>
-    <param name="linear_gain" value="0.5"/>
+    <param name="max_motor_cmd" value="100"/>
+    <param name="angular_gain" value="-7.0"/>
+    <param name="linear_gain" value="0.12"/>
   </node>
   
   <!-- Motor drivers -->
