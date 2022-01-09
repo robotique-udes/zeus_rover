@@ -1,9 +1,0 @@
-<launch>
-
-    <arg name="robot_namespace" default="steve" />
-
-    <param name="robot_description" command="$(find xacro)/xacro '$(find steve_description)/urdf/steve.urdf.xacro'
-        robot_namespace:=$(arg robot_namespace)
-        " />
-
-</launch>
