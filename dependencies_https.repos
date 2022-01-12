@@ -1,8 +1,8 @@
 repositories:
-  gps_goal:
+  goal_manager:
     type: git
-    url: https://github.com/STEVE-Rover/gps_goal.git
-    version: master
+    url: https://github.com/STEVE-Rover/goal_manager.git
+    version: main
   ros_rtsp:
     type: git
     url: https://github.com/CircusMonkey/ros_rtsp.git
