@@ -44,6 +44,7 @@ By default, goals can only be sent to move_base in meters from the origin of the
 Converts a 3D point cloud into a laser scan and keeps only the points belonging to obstacles (aka no ground points). Two versions are used: a simple versions that simply considers all points within a certain height range as obstacles and another version which estimates the ground normal to do ground segmentation.
 
 ### Usage
+For a simple obstacle detection feeding the complete pointcloud to the node that transform it into a laserscan. The more complicated version uses an obstacle detector that segments the pointcloud into 2: 1 for the obtsacles and 1 for the ground. The node is then feed the obstacle pointcloud.
 ```bash
 roslaunch steve_nav obstacle_detector_simple.launch
 ```
