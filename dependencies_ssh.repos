@@ -31,9 +31,9 @@ repositories:
     type: git
     url: git@github.com:JeremieBourque1/i2c_imu.git
     version: master
-  zeus_mobile_base_controller:
+  differential_drive:
     type: git
-    url: git@github.com:STEVE-Rover/zeus_mobile_base_controller.git
+    url: git@github.com:STEVE-Rover/differential_drive.git
     version: master
   ros_talon:
     type: git
