@@ -18,6 +18,7 @@
   <depend>robot_localization</depend>
   <depend>rtabmap_ros</depend>
   <depend>ddynamic_reconfigure_python</depend>
+  <depend>socketcan_bridge</depend>
 
   <export>
   </export>

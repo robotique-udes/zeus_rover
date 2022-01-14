@@ -33,54 +33,5 @@
     <node pkg="ros_talon" type="direct_drive6" name="motor6" output="screen">
       <param name="motor_nb" value="6" />
     </node> 
-
-    <node pkg="zeus_mobile_base_controller" type="odom_publisher.py" name="odom_publisher">
-        <remap from="odom" to="base_odom"/>
-    </node>
-
-  </group>
-
-  <group if="$(arg simulation)">
-  
-    <node pkg="topic_tools" type="transform" name="transform1" output="screen"
-      args="/ros_talon1/motor_percent /zeus/left_front_wheel_velocity_controller/command std_msgs/Float64 'float(m.data)'"
-      respawn="true"
-      respawn_delay="1">
-    </node>
-    
-    <node pkg="topic_tools" type="transform" name="transform2" output="screen"
-      args="/ros_talon2/motor_percent /zeus/right_front_wheel_velocity_controller/command std_msgs/Float64 'float(m.data)'"
-      respawn="true"
-      respawn_delay="1">
-    </node>
-    
-    <node pkg="topic_tools" type="transform" name="transform3" output="screen"
-      args="/ros_talon3/motor_percent /zeus/left_middle_wheel_velocity_controller/command std_msgs/Float64 'float(m.data)'"
-      respawn="true"
-      respawn_delay="1">
-    </node>
-    
-    <node pkg="topic_tools" type="transform" name="transform4" output="screen"
-      args="/ros_talon4/motor_percent /zeus/right_middle_wheel_velocity_controller/command std_msgs/Float64 'float(m.data)'"
-      respawn="true"
-      respawn_delay="1">
-    </node>
- 
-    <node pkg="topic_tools" type="transform" name="transform5" output="screen"
-      args="/ros_talon5/motor_percent /zeus/left_rear_wheel_velocity_controller/command std_msgs/Float64 'float(m.data)'"
-      respawn="true"
-      respawn_delay="1">
-    </node>
-    
-    <node pkg="topic_tools" type="transform" name="transform6" output="screen"
-      args="/ros_talon6/motor_percent /zeus/right_rear_wheel_velocity_controller/command std_msgs/Float64 'float(m.data)'"
-      respawn="true"
-      respawn_delay="1">
-    </node>
-
-    <node pkg="zeus_mobile_base_controller" type="odom_publisher_sim.py" name="odom_publisher_sim">
-        <remap from="odom" to="base_odom"/>
-    </node>
-
   </group>
 </launch>

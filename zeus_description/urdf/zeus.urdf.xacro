@@ -20,8 +20,10 @@
   <xacro:property name="wheel_kp" value="10000000.0" />
   <xacro:property name="wheel_kd" value="1" />
 
+  <link name="base_link" />
+
   <!-- Frame -->
-  <link name="base_link">
+  <link name="frame_link">
     <visual>
       <geometry>
         <mesh filename="file://$(find zeus_description)/STL/chassis.stl"/>
@@ -34,8 +36,17 @@
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="${frame_mass}"/>
+      <inertia ixx="4" ixy="0.0" ixz="0.0" iyy="4" iyz="0.0" izz="4"/>
+    </inertial>
   </link>
-  <gazebo reference="base_link">
+  <joint name="frame_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="frame_link" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <gazebo reference="frame_link">
     <!-- <material>Gazebo/DarkGray</material> -->
   </gazebo>
 
@@ -53,7 +64,7 @@
     </inertial>
   </link>
   <joint name="rocker_right_joint" type="revolute">
-    <parent link="base_link"/>
+    <parent link="frame_link"/>
     <child link="rocker_right"/>
     <origin rpy="0 -0.2 0" xyz="0 -0.3 0.05"/>
     <limit  lower="${-deg45}" upper="${deg45}" effort="100000.0" velocity="10.0"/>
@@ -115,7 +126,7 @@
     </inertial>
   </link>
   <joint name="rocker_left_joint" type="revolute">
-    <parent link="base_link"/>
+    <parent link="frame_link"/>
     <child link="rocker_left"/>
     <origin rpy="0 -0.2 0" xyz="0 0.3 0.05"/>
     <limit  lower="${-deg45}" upper="${deg45}" effort="100000.0" velocity="10.0"/>
@@ -430,19 +441,19 @@
 
   <joint name="imu_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="base_link" />
+    <parent link="frame_link" />
     <child link="imu_link" />
   </joint>
   <gazebo reference="imu_link">
   </gazebo>
 
    <!-- Camera -->
-  <xacro:camera_sensor name="camera1" parent="base_link" hfov="1.3962634" image_width="800" image_height="600"  >
+  <xacro:camera_sensor name="camera1" parent="frame_link" hfov="1.3962634" image_width="800" image_height="600"  >
     <origin xyz="0.1 0 0" rpy="0 0 0" />
   </xacro:camera_sensor>
 
   <!-- Intel RealSense d435 -->
-  <xacro:realsense_d435_sensor name="d435" parent="base_link" >
+  <xacro:realsense_d435_sensor name="d435" parent="frame_link" >
     <origin xyz="0 0 0.5" rpy="0 0 0" />
   </xacro:realsense_d435_sensor>
 
@@ -458,7 +469,7 @@
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
       <robotNamespace>$(arg robot_namespace)</robotNamespace>
       <updateRate>50</updateRate>
-      <bodyName>base_link</bodyName>
+      <bodyName>frame_link</bodyName>
       <topicName>/imu/data</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
@@ -473,8 +484,8 @@
     <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
       <robotNamespace>$(arg robot_namespace)</robotNamespace>
       <updateRate>1</updateRate>
-      <bodyName>base_link</bodyName>
-      <frameId>base_link</frameId>
+      <bodyName>frame_link</bodyName>
+      <frameId>frame_link</frameId>
       <topicName>/fix</topicName>
       <velocityTopicName>navsat/vel</velocityTopicName>
       <referenceLatitude>45.378395</referenceLatitude>

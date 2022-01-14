@@ -3,7 +3,7 @@
 
   <arg name="simulation" default="false"/>
 
-  <include file="$(find zeus_description)/launch/description.launch" />
+  <include file="$(find zeus_description)/launch/description_simple.launch" />
 
   <!-- Sensors -->
   <group unless="$(arg simulation)">
@@ -32,17 +32,13 @@
     <remap from="cmd_vel_out" to="cmd_vel_mux" />
   </node>
 
-  <!-- Twist to motor commands -->
-  <node pkg="zeus_mobile_base_controller" type="twist2motor_cmd.py" name="twist2motor_cmd" >
-    <remap from="cmd_vel" to="cmd_vel_out"/>
-    <param name="max_motor_cmd" value="100"/>
-    <param name="angular_gain" value="-7.0"/>
-    <param name="linear_gain" value="0.12"/>
-  </node>
-  
-  <!-- Motor drivers -->
-  <include file="$(find steve_control)/launch/motor_drivers.launch" >
-    <arg name="simulation" default="$(arg simulation)"/>
+  <!-- Base controller -->
+  <include file="$(find steve_control)/launch/base_controller.launch" unless="$(arg simulation)">
+    <arg name="simulation" value="$(arg simulation)"/>
+    <arg name="base_width" value="0.4"/>
+    <arg name="ticks_per_meter" value="384836"/>
+    <arg name="encoder_min" value="-2147483647"/>
+    <arg name="encoder_max" value="2147483647"/>
   </include>
 
   <!-- Safety_break -->
@@ -51,7 +47,6 @@
         <remap from="laserscan" to="obstacle_detector/scan"/>
         <remap from="status" to="safety_break/status"/>
         <remap from="cmd_vel_safety_brake" to="cmd_vel_out"/>
-
         <param name="safety_width" value="1.2" />
         <param name="safety_length" value="3" />
   </node>
