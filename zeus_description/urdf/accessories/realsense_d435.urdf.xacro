@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find steve_description)/urdf/accessories/_d435.urdf.xacro" />
+  <xacro:include filename="$(find zeus_description)/urdf/accessories/_d435.urdf.xacro" />
 
   <xacro:macro name="realsense_d435_sensor" params="parent *origin name" >
 

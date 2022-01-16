@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<robot name="steve_rover" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="simple" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find steve_description)/urdf/accessories/camera.urdf.xacro"/>
-  <xacro:include filename="$(find steve_description)/urdf/accessories/realsense_d435.urdf.xacro" />
+  <xacro:include filename="$(find zeus_description)/urdf/accessories/camera.urdf.xacro"/>
+  <xacro:include filename="$(find zeus_description)/urdf/accessories/realsense_d435.urdf.xacro" />
 
   <xacro:arg name="robot_namespace" default="/" />
 

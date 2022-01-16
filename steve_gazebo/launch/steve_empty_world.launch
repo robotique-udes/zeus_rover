@@ -4,7 +4,7 @@
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg world_name)"/> <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
-    <arg name="paused" value="false"/>
+    <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>
@@ -14,6 +14,8 @@
     <arg name="pub_clock_frequency" value="1000"/>
   </include>
 
-  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" />
+  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" >
+    <arg name="z" value="1.03" />
+  </include>
 
 </launch>

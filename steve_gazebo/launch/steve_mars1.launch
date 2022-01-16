@@ -2,16 +2,17 @@
 <launch>
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find steve_gazebo)/worlds/mars.world"/>
+		<arg name="world_name" value="$(find steve_gazebo)/worlds/mars1.world"/>
 		<arg name="debug" value="false" />
 		<arg name="gui" value="true" />
-		<arg name="paused" value="false"/>
+		<arg name="paused" value="true"/>
 		<arg name="use_sim_time" value="true"/>
 		<arg name="headless" value="false"/>
 	</include>
 
 	<include file="$(find steve_gazebo)/launch/spawn_steve.launch" >
-		<arg name="z" value="0.1" />
+		<arg name="z" value="0.15" />
+		<arg name="yaw" default="0.7"/>
 	</include>
 	
 

@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
 
@@ -14,7 +15,7 @@
     <include>
       <uri>model://curiosity_path</uri>
       <name>curiosity_path</name>
-      <pose>0 -55 0 0 0 0</pose>
+      <pose>-100 100 14 0 0 0</pose>
     </include>
 
   </world>

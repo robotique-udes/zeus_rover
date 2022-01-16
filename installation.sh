@@ -4,7 +4,7 @@ sudo apt-get update
 
 sudo apt-get install -y python3-pip
 
-sudo pip3 install -y vcstool
+sudo pip3 install -y vcstool numpy matplotlib
 
 sudo apt-get install -y qt4-default liboctave-dev
 
