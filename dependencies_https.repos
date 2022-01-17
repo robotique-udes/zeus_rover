@@ -37,7 +37,7 @@ repositories:
     version: master
   ros_talon:
     type: git
-    url:https://github.com/STEVE-Rover/ros_talon.git
+    url: https://github.com/STEVE-Rover/ros_talon.git
     version: master
   zeus_arm:
     type: git
