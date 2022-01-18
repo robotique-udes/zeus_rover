@@ -2,8 +2,10 @@
 <launch>
 
   <arg name="simulation" default="false"/>
+  <arg name="simple" default="true"/>
 
-  <include file="$(find zeus_description)/launch/description_simple.launch" />
+  <include file="$(find zeus_description)/launch/description_simple.launch" if="$(arg simple)"/>
+  <include file="$(find zeus_description)/launch/description.launch" unless="$(arg simple)"/>
 
   <!-- Sensors -->
   <group unless="$(arg simulation)">
@@ -33,12 +35,8 @@
   </node>
 
   <!-- Base controller -->
-  <include file="$(find steve_control)/launch/base_controller.launch" unless="$(arg simulation)">
+  <include file="$(find steve_control)/launch/base_controller.launch" >
     <arg name="simulation" value="$(arg simulation)"/>
-    <arg name="base_width" value="0.4"/>
-    <arg name="ticks_per_meter" value="384836"/>
-    <arg name="encoder_min" value="-2147483647"/>
-    <arg name="encoder_max" value="2147483647"/>
   </include>
 
   <!-- Safety_break -->

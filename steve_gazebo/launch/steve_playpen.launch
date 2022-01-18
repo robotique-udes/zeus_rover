@@ -25,9 +25,11 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 -->
 <launch>
 
+  <arg name="simple" default="true"/>
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find steve_gazebo)/worlds/clearpath_playpen.world"/>
-    <arg name="paused" value="true"/>
+    <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>
@@ -36,7 +38,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <arg name="pub_clock_frequency" value="1000" />
   </include>
 
-  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" >
+  <include file="$(find steve_gazebo)/launch/spawn_steve_simple.launch" if="$(arg simple)">
+    <arg name="z" value="1.05" />
+  </include>
+  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" unless="$(arg simple)">
     <arg name="z" value="1.05" />
   </include>
 

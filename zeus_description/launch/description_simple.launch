@@ -6,6 +6,4 @@
         robot_namespace:=$(arg robot_namespace)
         " />
 
-    <!-- <rosparam command="load" file="$(find zeus_description)config/controllers_simple.yaml"/> -->
-
 </launch>
