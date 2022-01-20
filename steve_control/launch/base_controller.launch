@@ -9,6 +9,17 @@
   <arg name="encoder_max" default="2147483647"/>
   <arg name="publish_tf" default="false"/>
 
+  <!-- Twist Multiplexer -->
+  <node name="twist_mux" pkg="twist_mux" type="twist_mux">
+    <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
+    <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
+    <remap from="cmd_vel_out" to="cmd_vel_mux" />
+  </node>
+
+  <node pkg="steve_teleop" type="zero_twist_publisher" name="zero_twist_publisher" >
+    <param name="rate" value="10" />
+  </node>
+
   <!-- Differential drive controller -->
   <node pkg="differential_drive" type="diff_drive.py" name="diff_drive">
     <param name="wheel_radius" value="0.2"/>
