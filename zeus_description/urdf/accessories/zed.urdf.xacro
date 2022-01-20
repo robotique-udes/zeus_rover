@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:arg name="camera_name"   default="zed" />
+  <xacro:arg name="camera_model"  default="zed" />
+  <xacro:arg name="base_frame"    default="base_link" />
+  <xacro:arg name="cam_pos_x"     default="0.0" />
+  <xacro:arg name="cam_pos_y"     default="0.0" />
+  <xacro:arg name="cam_pos_z"     default="0.0" />
+  <xacro:arg name="cam_roll"      default="0.0" />
+  <xacro:arg name="cam_pitch"     default="0.0" />
+  <xacro:arg name="cam_yaw"       default="0.0" />
+
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+
+  <xacro:macro name="zed_depth_cam" params="parent *origin name" >
+
+    <xacro:zed_camera name="$(arg camera_name)" model="$(arg camera_model)" parent="$(arg base_frame)">
+      <origin xyz="$(arg cam_pos_x) $(arg cam_pos_y) $(arg cam_pos_z)" rpy="$(arg cam_roll) $(arg cam_pitch) $(arg cam_yaw)" />
+    </xacro:zed_camera>
+
+    <gazebo reference="${name}_base_link">
+      <sensor name="camera" type="depth">
+          <update_rate>5</update_rate>
+          <camera>
+            <horizontal_fov>1.5</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>B8G8R8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>50</far>
+            </clip>
+          </camera>
+          <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+            <baseline>0.2</baseline>
+            <alwaysOn>true</alwaysOn>
+            <!-- Keep this zero, update_rate in the parent <sensor> tag
+              will control the frame rate. -->
+            <updateRate>0.0</updateRate>
+            <cameraName>${name}</cameraName>
+            <imageTopicName>/${name}/zed_node/rgb/image_rect_color</imageTopicName>
+            <cameraInfoTopicName>/${name}/zed_node/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/${name}/zed_node/depth/depth_registered</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/${name}/zed_node/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/${name}/zed_node/point_cloud/cloud_registered</pointCloudTopicName>
+            <frameName>${name}_left_camera_optical_frame</frameName>
+            <pointCloudCutoff>0.4</pointCloudCutoff>
+            <pointCloudCutoffMax>20.0</pointCloudCutoffMax>
+            <distortionK1>0</distortionK1>
+            <distortionK2>0</distortionK2>
+            <distortionK3>0</distortionK3>
+            <distortionT1>0</distortionT1>
+            <distortionT2>0</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+        </sensor>
+      </gazebo>
+  </xacro:macro>
+</robot>
+
+<!--
+
+<robot name="stereolabs_camera" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="camera_name"   default="zed" />
+  <xacro:arg name="camera_model"  default="zed" />
+  <xacro:arg name="base_frame"    default="base_link" />
+  <xacro:arg name="cam_pos_x"     default="0.0" />
+  <xacro:arg name="cam_pos_y"     default="0.0" />
+  <xacro:arg name="cam_pos_z"     default="0.0" />
+  <xacro:arg name="cam_roll"      default="0.0" />
+  <xacro:arg name="cam_pitch"     default="0.0" />
+  <xacro:arg name="cam_yaw"       default="0.0" />
+
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+  <xacro:zed_camera name="$(arg camera_name)" model="$(arg camera_model)" parent="$(arg base_frame)">
+    <origin xyz="$(arg cam_pos_x) $(arg cam_pos_y) $(arg cam_pos_z)" rpy="$(arg cam_roll) $(arg cam_pitch) $(arg cam_yaw)" />
+  </xacro:zed_camera>
+
+  <link name="$(arg base_frame)" />
+</robot>
+
+-->
