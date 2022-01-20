@@ -6,7 +6,7 @@ To launch a launch file on startup, the `robot_upstart` package is used. Use ins
 ```bash
 rosrun robot_upstart install --master http://{ip}:11311 --job zeus_bringup {package_name}/launch/{launch_file}
 ```
-Robot_upstart will then ask you to run another command. Before doing this, you will need to make changes to `usr/sbin/zeus_bringup-start`. Comment the following line: 
+Robot_upstart will then ask you to run another command. Before doing this, you will need to make changes to `/usr/sbin/zeus_bringup-start`. Comment the following line: 
 ```
 #export ROS_HOSTNAME=$(hostname)
 ```
