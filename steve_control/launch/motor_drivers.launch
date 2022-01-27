@@ -6,9 +6,9 @@
 
   <group unless="$(arg simulation)">
     <!-- Launch socketcan bridge node -->
-    <!--<node pkg="socketcan_bridge" name="socketcan_bridge_node" type="socketcan_bridge_node">
+    <node pkg="socketcan_bridge" name="socketcan_bridge_node" type="socketcan_bridge_node">
     </node>
--->
+    
     <!-- Launch driver for each motor -->
     <node pkg="ros_talon" type="direct_drive" name="motor1" output="screen">  
       <param name="motor_nb" value="1" type="str"/>
