@@ -5,9 +5,9 @@
   <arg name="simulation" default="false"/>
   <arg name="base_width" default="0.9"/>
   <arg name="wheel_radius" default="0.13"/>
-  <arg name="ticks_per_revolution" default="6045"/> 
-  <arg name="encoder_min" default="-2147483647"/>
-  <arg name="encoder_max" default="2147483647"/>
+  <arg name="ticks_per_revolution" default="9749.97486979333"/> 
+  <arg name="encoder_min" default="-499569.71875"/>
+  <arg name="encoder_max" default="499569.71875"/>
   <arg name="publish_tf" default="false"/>
   <arg name="bypass_safety" default="false"/>
 
@@ -29,7 +29,8 @@
   </node>
 
   <!-- Differential drive controller -->
-  <node pkg="differential_drive" type="diff_drive.py" name="diff_drive">
+  <node pkg="differential_drive" type="diff_drive.py" name="diff_drive" output="screen">
+    <param name="rate" value="10"/>
     <param name="wheel_radius" value="$(arg wheel_radius)"/>
     <param name="base_width" value="$(arg base_width)" />
     <param name="publish_tf" value="$(arg publish_tf)"/>
@@ -39,6 +40,7 @@
 
   <!-- Hardware interface -->
   <node pkg="differential_drive" type="hardware_interface.py" name="hardware_interface" output="screen">
+    <param name="rate" value="10"/>
     <param name="wheel_radius" value="0.2"/>
     <param name="ticks_per_revolution" value="$(arg ticks_per_revolution)"/>
     <param name="encoder_min" value="$(arg encoder_min)" />
