@@ -9,8 +9,9 @@
 
   <!-- Sensors -->
   <group unless="$(arg simulation)">
+    
     <!-- test cam zed -->
-    <!-- <include file="$(find steve_cam)/launch/zed.launch" /> -->
+    <include file="$(find steve_cam)/launch/zed.launch" />
 
     <!-- IMU -->
     <node pkg="i2c_imu" type="i2c_imu_node" name="imu" output="screen" >
@@ -51,9 +52,9 @@
     
   <!-- Odometry sources -->
   <node name="rgbd_odometry" pkg="rtabmap_ros" type="rgbd_odometry" >
-    <remap from="rgb/image" to="/d435/color/image_raw" />
-    <remap from="rgb/camera_info" to="/d435/color/camera_info" />
-    <remap from="depth/image" to="/d435/depth/image_rect_raw" />
+    <remap from="rgb/image" to="/zed/rgb/image_rect_color" />
+    <remap from="rgb/camera_info" to="/zed/rgb/camera_info" />
+    <remap from="depth/image" to="/zed/depth/depth_registered" />
     <remap from="odom" to="rgbd_odom" />
     <rosparam command="load" file="$(find steve_control)/config/rgbd_odometry.yaml"/>
   </node>

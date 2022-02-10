@@ -102,3 +102,9 @@ RTIMULibCal
 The calibration data will also be saved in that folder with the name `RTIMULib.ini`.
 
 That calibration file can then be converted to a yaml file that the `i2c_imu` ROS package will understand. For more information on how to do that, refer to the [package's documentation](https://github.com/JeremieBourque1/i2c_imu).
+
+## Zed SDK installation
+You need drivers to run the Zed that depends on cuda.
+
+Firstly, if not installed, install [CUDA](https://developer.nvidia.com/cuda-downloads). Then download and install [ZED SDK **≥ 3.5**](https://www.stereolabs.com/developers/).
+
