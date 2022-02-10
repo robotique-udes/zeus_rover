@@ -3,6 +3,9 @@ There are two GPS receivers. One of them will be used on the rover, and another 
 
 Emlid Reach documentation: https://github.com/emlid/reach-docs/tree/old-docs
 
+## LED patterns
+The module app can be accessed when the green LED is blinking along with another color. It can take multiple minutes before it is fully booted.
+
 ## First setup
 1. Download the Reach app on your smartphone
 2. Plugin the receiver with the micro-usb cable and wait for the LED to turn on.
