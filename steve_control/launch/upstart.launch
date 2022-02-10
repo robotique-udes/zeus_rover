@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- This launch file will be launched at boot up time -->
+    <include file="$(find steve_control)/launch/multi_master.launch" />
+    <include file="$(find steve_control)/launch/base_controller.launch" >
+        <arg name="simulation" value="false"/>
+        <arg name="bypass_safety" value="true"/>  <!-- FIXME: this should be temporary -->
+    </include>
+</launch>

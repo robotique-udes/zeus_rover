@@ -2,8 +2,10 @@
 <launch>
 
   <arg name="simulation" default="false"/>
+  <arg name="simple" default="true"/>
 
-  <include file="$(find zeus_description)/launch/description_simple.launch" />
+  <include file="$(find zeus_description)/launch/description_simple.launch" if="$(arg simple)"/>
+  <include file="$(find zeus_description)/launch/description.launch" unless="$(arg simple)"/>
 
   <!-- Sensors -->
   <group unless="$(arg simulation)">
@@ -21,24 +23,11 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> 
 
-  <node pkg="steve_teleop" type="zero_twist_publisher" name="zero_twist_publisher" >
-    <param name="rate" value="10" />
-  </node>
-
-  <!-- Twist Multiplexer -->
-  <node name="twist_mux" pkg="twist_mux" type="twist_mux">
-    <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
-    <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
-    <remap from="cmd_vel_out" to="cmd_vel_mux" />
-  </node>
-
   <!-- Base controller -->
-  <include file="$(find steve_control)/launch/base_controller.launch" unless="$(arg simulation)">
+  <!-- base_controller.launch is only included if in sim, because on the real rover it will be launched at boot time -->
+  <include file="$(find steve_control)/launch/base_controller.launch" if="$(arg simulation)">
     <arg name="simulation" value="$(arg simulation)"/>
-    <arg name="base_width" value="0.4"/>
-    <arg name="ticks_per_meter" value="384836"/>
-    <arg name="encoder_min" value="-2147483647"/>
-    <arg name="encoder_max" value="2147483647"/>
+    <arg name="bypass_safety" value="false"/>
   </include>
 
   <!-- Safety_break -->

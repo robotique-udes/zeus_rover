@@ -11,7 +11,7 @@
 
     <include file="$(find steve_control)/launch/control.launch" >
       <arg name="simulation" value="true"/>
-      <arg name="simple" default="false"/>
+      <arg name="simple" value="true"/>
     </include>
 
     <!-- Spawn robot in gazebo -->
@@ -23,14 +23,6 @@
               -urdf
               -param robot_description
               -model $(arg robot_namespace)" />
-    
-    <node name="zeus_controller_spawner" pkg="controller_manager" type="spawner" 
-      args="--namespace=/zeus
-            joint_state_controller
-            right_front_wheel_velocity_controller
-            right_rear_wheel_velocity_controller
-            left_front_wheel_velocity_controller
-            left_rear_wheel_velocity_controller"/>
 
   </group>
 
