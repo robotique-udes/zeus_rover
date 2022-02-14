@@ -7,10 +7,6 @@ repositories:
     type: git
     url: https://github.com/STEVE-Rover/goal_manager.git
     version: main
-  gps_goal:
-    type: git
-    url: git@github.com:STEVE-Rover/gps_goal.git
-    version: master
   ros_rtsp:
     type: git
     url: git@github.com:CircusMonkey/ros_rtsp.git
@@ -19,10 +15,6 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/ros_talon.git
     version: master
-  steve_rover:
-    type: git
-    url: git@github.com:STEVE-Rover/steve_rover.git
-    version: Zed
   steve_safety_brake:
     type: git
     url: git@github.com:STEVE-Rover/steve_safety_brake.git
@@ -50,4 +42,8 @@ repositories:
   zeus_arm:
     type: git
     url: git@github.com:STEVE-Rover/zeus_arm.git
+    version: master
+  i2c_imu:
+    type: git
+    url: git@github.com:JeremieBourque1/i2c_imu.git
     version: master
