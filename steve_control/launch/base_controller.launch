@@ -26,6 +26,7 @@
     <param name="encoder_min" value="$(arg encoder_min)" />
     <param name="encoder_max" value="$(arg encoder_max)" />
     <param name="simulation" value="$(arg simulation)"/>
+    <remap from="cmd_motors_diff_drive" to="wheel_vel_target"/>
   </node>
 
   <!-- Motor drivers -->
