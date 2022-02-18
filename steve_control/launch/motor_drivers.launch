@@ -1,38 +1,49 @@
 <?xml version="1.0" ?>
 
 <launch>
-  <!-- Launch socketcan bridge node -->
-  <node pkg="socketcan_bridge" name="socketcan_bridge_node" type="socketcan_bridge_node">
-  </node>
 
-  <!-- Launch driver for each motor -->
-  <node pkg="ros_talon" type="direct_drive1" name="motor1" output="screen">  
-    <param name="motor_nb" value="1" />
-    <remap from="/ros_talon1/motor_percent" to="/motor_cmd_left"/>
-  </node>
+  <arg name="simulation" default="false"/>
 
-  <node pkg="ros_talon" type="direct_drive2" name="motor2" output="screen">
-    <param name="motor_nb" value="2" />
-    <remap from="/ros_talon2/motor_percent" to="/motor_cmd_right"/>
-  </node> 
+  <group unless="$(arg simulation)">
+    <!-- Launch socketcan bridge node -->
+    <node pkg="socketcan_bridge" name="socketcan_bridge_node" type="socketcan_bridge_node">
+    </node>
 
-  <node pkg="ros_talon" type="direct_drive3" name="motor3" output="screen">
-    <param name="motor_nb" value="3" />
-    <remap from="/ros_talon3/motor_percent" to="/motor_cmd_left"/>
-  </node> 
+    <!-- Launch driver for each motor -->
+    <node pkg="ros_talon" type="direct_drive1" name="motor1" output="screen">  
+      <param name="motor_nb" value="1" />
+      <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
+      <remap from="/cmd_percent_motors" to="/motor_cmd_left" />
+    </node>
 
-  <node pkg="ros_talon" type="direct_drive4" name="motor4" output="screen">
-    <param name="motor_nb" value="4" />
-    <remap from="/ros_talon4/motor_percent" to="/motor_cmd_right"/>
-  </node> 
-
-  <node pkg="ros_talon" type="direct_drive5" name="motor5" output="screen">
-    <param name="motor_nb" value="5" />
-    <remap from="/ros_talon5/motor_percent" to="/motor_cmd_left"/>
-  </node> 
-
-  <node pkg="ros_talon" type="direct_drive6" name="motor6" output="screen">
-    <param name="motor_nb" value="6" />
-    <remap from="/ros_talon6/motor_percent" to="/motor_cmd_right"/>
+    <node pkg="ros_talon" type="direct_drive2" name="motor2" output="screen">
+      <param name="motor_nb" value="2" />
+      <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
+      <remap from="/cmd_percent_motors" to="/motor_cmd_right" />
     </node> 
+
+    <node pkg="ros_talon" type="direct_drive3" name="motor3" output="screen">
+      <param name="motor_nb" value="3" />
+      <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
+      <remap from="/cmd_percent_motors" to="/motor_cmd_left" />
+    </node> 
+
+    <node pkg="ros_talon" type="direct_drive4" name="motor4" output="screen">
+      <param name="motor_nb" value="4" />
+      <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
+      <remap from="/cmd_percent_motors" to="/motor_cmd_right" />
+    </node> 
+
+    <node pkg="ros_talon" type="direct_drive5" name="motor5" output="screen">
+      <param name="motor_nb" value="5" />
+      <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
+      <remap from="/cmd_percent_motors" to="motor_cmd_left" />
+    </node> 
+
+    <node pkg="ros_talon" type="direct_drive6" name="motor6" output="screen">
+      <param name="motor_nb" value="6" />
+      <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
+      <remap from="/cmd_percent_motors" to="/motor_cmd_right" />
+    </node>
+  </group>
 </launch>
