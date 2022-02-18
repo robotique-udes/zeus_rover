@@ -44,5 +44,6 @@
       <param name="motor_nb" value="6" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="motor_cmd_right" to="cmd_percent" />
+    </node>
   </group>
 </launch>
