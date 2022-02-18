@@ -51,3 +51,6 @@ Used to detect the pose of aruco tags
 2. Look at the output image topic to see detected tags
 3. (Optional) In Gazebo, import the models named `urc_aruco_X` to test in simulation
 
+## ZED
+1. To reconfigure dynamically parameters from the zed, run :`rosrun rqt_reconfigure rqt_reconfigure`
+2. To show camera feed `rosrun rqt_image_view rqt_image_view` or `rqt_image_view`
