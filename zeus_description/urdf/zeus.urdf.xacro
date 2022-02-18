@@ -416,7 +416,7 @@
     <parent link="rocker_left"/>
     <child link="left_rear_wheel"/>
     <origin rpy="${deg90} 0 0" xyz="-0.6 0.05 -0.35"/>
-    <axis xyz="0 0 -1"/>
+    <axis xyz="0 0 1"/>
   </joint>
   <transmission name="left_rear_wheel_trans">
     <type>transmission_interface/SimpleTransmission</type>

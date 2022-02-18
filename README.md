@@ -59,7 +59,14 @@
     ```
     If you need to add and official ROS package as a dependency, you must add it to the `package.xml` of the relevant package.
     
-9. Go to the root of the workspace and execute `catkin_make` to compile the packages.
+8. Go to the root of the workspace and execute `catkin_make` to compile the packages. 
+
+    **Note**: Compiling ROS packages that require opencv as an include directory will return an error on a Jetson because it is not installed at the same place it usually is on other systems. To fix this, run this line: 
+        ```bash
+        sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/opencv
+        ```
+        
+    source: https://answers.ros.org/question/199279/installation-from-source-fails-because-of-cv_bridge-include-dir/
 
 ## Launching the Gazebo simulation
 To launch the gazebo simulation, execute this command
@@ -95,3 +102,9 @@ RTIMULibCal
 The calibration data will also be saved in that folder with the name `RTIMULib.ini`.
 
 That calibration file can then be converted to a yaml file that the `i2c_imu` ROS package will understand. For more information on how to do that, refer to the [package's documentation](https://github.com/JeremieBourque1/i2c_imu).
+
+## Zed SDK installation
+You need drivers to run the Zed that depends on cuda.
+
+Firstly, if not installed, install [CUDA](https://developer.nvidia.com/cuda-downloads). Then download and install [ZED SDK **≥ 3.5**](https://www.stereolabs.com/developers/).
+

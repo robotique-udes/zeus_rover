@@ -2,7 +2,7 @@
 <robot name="simple" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find zeus_description)/urdf/accessories/camera.urdf.xacro"/>
-  <xacro:include filename="$(find zeus_description)/urdf/accessories/realsense_d435.urdf.xacro" />
+  <xacro:include filename="$(find zeus_description)/urdf/accessories/zed.urdf.xacro" />
 
   <xacro:arg name="robot_namespace" default="/" />
 
@@ -138,10 +138,11 @@
     <origin xyz="${base_x_size/2+0.01} 0 0" rpy="0 0 0" />
   </xacro:camera_sensor>
 
-  <!-- Intel RealSense d435 -->
-  <xacro:realsense_d435_sensor name="d435" parent="base_link" >
+
+  <!-- Zed depth camera -->
+  <xacro:zed_depth_cam name="zed" parent="base_link" >
     <origin xyz="0 0 0.5" rpy="0 0 0" />
-  </xacro:realsense_d435_sensor>
+  </xacro:zed_depth_cam>
 
   <!-- gazebo plugins -->
   <gazebo>
