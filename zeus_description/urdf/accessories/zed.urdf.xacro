@@ -42,11 +42,11 @@
               will control the frame rate. -->
             <updateRate>0.0</updateRate>
             <cameraName>${name}</cameraName>
-            <imageTopicName>/${name}/zed_node/rgb/image_rect_color</imageTopicName>
-            <cameraInfoTopicName>/${name}/zed_node/rgb/camera_info</cameraInfoTopicName>
-            <depthImageTopicName>/${name}/zed_node/depth/depth_registered</depthImageTopicName>
-            <depthImageCameraInfoTopicName>/${name}/zed_node/depth/camera_info</depthImageCameraInfoTopicName>
-            <pointCloudTopicName>/${name}/zed_node/point_cloud/cloud_registered</pointCloudTopicName>
+            <imageTopicName>/zed_node/rgb/image_rect_color</imageTopicName>
+            <cameraInfoTopicName>/zed_node/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/zed_node/depth/depth_registered</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/zed_node/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/zed_node/point_cloud/cloud_registered</pointCloudTopicName>
             <frameName>${name}_left_camera_optical_frame</frameName>
             <pointCloudCutoff>0.4</pointCloudCutoff>
             <pointCloudCutoffMax>20.0</pointCloudCutoffMax>

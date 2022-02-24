@@ -182,7 +182,7 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.009999999776482582
           Style: Flat Squares
-          Topic: /zed/zed_node/point_cloud/cloud_registered
+          Topic: /zed_node/point_cloud/cloud_registered
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
@@ -190,7 +190,7 @@ Visualization Manager:
         - Class: rviz/Camera
           Enabled: true
           Image Rendering: background and overlay
-          Image Topic: /zed/zed_node/rgb/image_rect_color
+          Image Topic: /zed_node/rgb/image_rect_color
           Name: front camera
           Overlay Alpha: 0.5
           Queue Size: 2
@@ -418,7 +418,7 @@ Visualization Manager:
             Shaft Length: 1
             Shaft Radius: 0.05000000074505806
             Value: Arrow
-          Topic: /zed/zed_node/odom
+          Topic: /zed_node/odom
           Unreliable: false
           Value: false
       Enabled: true
