@@ -14,17 +14,13 @@
     <include file="$(find steve_cam)/launch/zed.launch" />
 
     <!-- IMU -->
-    <node pkg="i2c_imu" type="i2c_imu_node" name="imu" output="screen" >
-	    <rosparam file="$(find steve_control)/config/mpu9250.yaml"/>
-      <remap from="data" to="imu/data"/>		
-	  </node>
+    <include file="$(find steve_control)/launch/mpu9250.launch" />
 
     <!-- Launch gps -->
     <!-- Do not forget to give access to the port : sudo chmod 666 /dev/ttyTHS1 -->
-    <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="nmea_serial_driver" output="screen"> 
-      <param name="port" value="/dev/ttyACM0" />
-      <param name="baud" value="38400" />
-    </node>
+    <include file="$(find steve_control)/launch/gps.launch">
+      
+    </include>
   </group>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
