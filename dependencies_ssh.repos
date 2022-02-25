@@ -1,11 +1,19 @@
 repositories:
-  gps_goal:
+  differential_drive:
     type: git
-    url: git@github.com:STEVE-Rover/gps_goal.git
+    url: git@github.com:STEVE-Rover/differential_drive.git
     version: master
+  goal_manager:
+    type: git
+    url: https://github.com/STEVE-Rover/goal_manager.git
+    version: main
   ros_rtsp:
     type: git
     url: git@github.com:CircusMonkey/ros_rtsp.git
+    version: master
+  ros_talon:
+    type: git
+    url: git@github.com:STEVE-Rover/ros_talon.git
     version: master
   steve_safety_brake:
     type: git
@@ -27,6 +35,14 @@ repositories:
     type: git
     url: git@github.com:RobotWebTools/web_video_server.git
     version: develop
+  zed-ros-wrapper:
+    type: git
+    url: git@github.com:stereolabs/zed-ros-wrapper.git
+    version: master
+  zeus_arm:
+    type: git
+    url: git@github.com:STEVE-Rover/zeus_arm.git
+    version: master
   i2c_imu:
     type: git
     url: git@github.com:JeremieBourque1/i2c_imu.git

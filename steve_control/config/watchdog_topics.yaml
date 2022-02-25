@@ -24,6 +24,6 @@ topic_3:
 topic_4:
   name: base_odom
   topic_name: /base_odom
-  min_freq: 25
+  min_freq: 5
   use_average: true
   monitoring_rate: 5

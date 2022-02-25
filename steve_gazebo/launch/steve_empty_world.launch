@@ -1,6 +1,7 @@
 <launch>
 
   <arg name="world_name" default="worlds/empty.world"/>
+  <arg name="simple" default="true"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg world_name)"/> <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
@@ -14,6 +15,11 @@
     <arg name="pub_clock_frequency" value="1000"/>
   </include>
 
-  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" />
+  <include file="$(find steve_gazebo)/launch/spawn_steve_simple.launch" if="$(arg simple)">
+    <arg name="z" value="1.03" />
+  </include>
+  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" unless="$(arg simple)">
+    <arg name="z" value="1.03" />
+  </include>
 
 </launch>

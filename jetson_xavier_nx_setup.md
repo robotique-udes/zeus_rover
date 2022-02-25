@@ -40,6 +40,15 @@ This guide will show you how to set up the Jetson Xavier NX for the Zeus rover w
     ```
     Reboot to apply the changes
 
+7. Installing Zed SDK on jetson
+
+    a. Download sdk for jetpack 4.6 (Here: https://www.stereolabs.com/developers/release/)
+    b. 
+    ```bash
+    chmod +x ./Downloads/ZED_SDK_XXX.run 
+    ./ZED_SDK_XXX.run
+    ```
+
 ## Wiring
 This is the pinout of the GPIO on a Jetson Xavier NX. Pin 1 is the one closest to the IO ports. Source: https://www.jetsonhacks.com/nvidia-jetson-xavier-nx-gpio-header-pinout/
 ![Jetson Xavier NX GPIO pinout](images/Jetson_Xavier_NX_GPIO_Pinout.png?raw=true "Jetson Xavier NX GPIO pinout")

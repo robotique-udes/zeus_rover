@@ -1,8 +1,8 @@
 repositories:
-  gps_goal:
+  goal_manager:
     type: git
-    url: https://github.com/STEVE-Rover/gps_goal.git
-    version: master
+    url: https://github.com/STEVE-Rover/goal_manager.git
+    version: main
   ros_rtsp:
     type: git
     url: https://github.com/CircusMonkey/ros_rtsp.git
@@ -31,3 +31,20 @@ repositories:
     type: git
     url: https://github.com/JeremieBourque1/i2c_imu.git
     version: master
+  differential_drive:
+    type: git
+    url: https://github.com/STEVE-Rover/differential_drive.git
+    version: master
+  ros_talon:
+    type: git
+    url: https://github.com/STEVE-Rover/ros_talon.git
+    version: master
+  zed-ros-wrapper:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-wrapper.git
+    version: master
+  zeus_arm:
+    type: git
+    url: https://github.com/STEVE-Rover/zeus_arm.git
+    version: master
+  
