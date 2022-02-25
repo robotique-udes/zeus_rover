@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch gps -->
+    <!-- Do not forget to give access to the port : sudo chmod 666 /dev/ttyXXX -->
+    <!-- Port to use on the Jetson Xavier NX: /dev/ttyTHS0 -->
+    <!-- Port to use on the Jetson Nano: /dev/ttyTHS1 -->
+    <!-- Port to use with the FT232H USB to UART: /dev/ttyUSB0 -->
+    <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="nmea_serial_driver" output="screen"> 
+        <param name="port" value="/dev/ttyUSB0" />
+        <param name="baud" value="115200" />
+    </node>
+</launch>
+    
