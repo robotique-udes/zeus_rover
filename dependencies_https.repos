@@ -43,6 +43,10 @@ repositories:
     type: git
     url: https://github.com/stereolabs/zed-ros-wrapper.git
     version: master
+  zed-ros-interfaces:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-interfaces.git
+    version: main
   zeus_arm:
     type: git
     url: https://github.com/STEVE-Rover/zeus_arm.git
