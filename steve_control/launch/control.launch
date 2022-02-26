@@ -84,7 +84,7 @@
   <!-- Initialize GPS origin -->
   <node pkg="swri_transform_util" type="initialize_origin.py" name="initialize_origin" >
     <param name="local_xy_frame" value="/map"/>
-    <param name="local_xy_origin" value="UdeS"/>  <!-- Change this to the name of the wanted location in the list-->
+    <param name="local_xy_origin" value="UdeS_PK1"/>  <!-- Change this to the name of the wanted location in the list-->
     <rosparam param="local_xy_origins">
       [{ name: MDRS,
           latitude: 38.406333,
@@ -96,7 +96,13 @@
           latitude: 45.378395,
           longitude: -71.926644,
           altitude: 263.0,
-          heading: 0.0}]
+          heading: 0.0},
+          
+        { name: UdeS_PK1,
+          latitude: 45.3772267,
+          longitude: -71.9277420,
+          altitude: 0,
+          heading: 0,0}]
     </rosparam>
 </node> 
 
