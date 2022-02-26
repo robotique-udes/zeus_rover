@@ -36,13 +36,8 @@ repositories:
     url: git@github.com:RobotWebTools/web_video_server.git
     version: develop
   zed-ros-wrapper:
-    type: git
-    url: git@github.com:stereolabs/zed-ros-wrapper.git
-    version: master
-  zed-ros-interfaces:
-    type: git
-    url: git@github.com:stereolabs/zed-ros-interfaces.git
-    version: main
+    type: zip
+    url: https://github.com/stereolabs/zed-ros-wrapper/archive/refs/tags/v3.5.zip
   zeus_arm:
     type: git
     url: git@github.com:STEVE-Rover/zeus_arm.git
