@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <arg name="simple" default="true"/>
+
+    <include file="$(find zeus_description)/launch/description_simple.launch" if="$(arg simple)"/>
+    <include file="$(find zeus_description)/launch/description.launch" unless="$(arg simple)"/> -->
+
+    <include file="$(find steve_control)/launch/multi_master.launch" />
+    <node pkg="steve_watchdog" type="heartbeat.py" name="heartbeat">
+        <param name="rate" value="2"/>
+    </node>
+    
+</launch>
