@@ -12,13 +12,9 @@
   <xacro:arg name="cam_pitch"     default="0.0" />
   <xacro:arg name="cam_yaw"       default="0.0" />
 
-  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+  <xacro:macro name="zed_depth_cam" params="parent *origin name node_name" >
 
-  <xacro:macro name="zed_depth_cam" params="parent *origin name" >
-
-    <xacro:zed_camera name="$(arg camera_name)" model="$(arg camera_model)" parent="$(arg base_frame)">
-      <origin xyz="$(arg cam_pos_x) $(arg cam_pos_y) $(arg cam_pos_z)" rpy="$(arg cam_roll) $(arg cam_pitch) $(arg cam_yaw)" />
-    </xacro:zed_camera>
+    <xacro:include filename="$(find zed_wrapper)/urdf/zed_descr.urdf.xacro" />
 
     <gazebo reference="${name}_base_link">
       <sensor name="camera" type="depth">
@@ -42,11 +38,11 @@
               will control the frame rate. -->
             <updateRate>0.0</updateRate>
             <cameraName>${name}</cameraName>
-            <imageTopicName>/zed_node/rgb/image_rect_color</imageTopicName>
-            <cameraInfoTopicName>/zed_node/rgb/camera_info</cameraInfoTopicName>
-            <depthImageTopicName>/zed_node/depth/depth_registered</depthImageTopicName>
-            <depthImageCameraInfoTopicName>/zed_node/depth/camera_info</depthImageCameraInfoTopicName>
-            <pointCloudTopicName>/zed_node/point_cloud/cloud_registered</pointCloudTopicName>
+            <imageTopicName>/${node_name}/rgb/image_rect_color</imageTopicName>
+            <cameraInfoTopicName>/${node_name}/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/${node_name}/depth/depth_registered</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/${node_name}/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/${node_name}/point_cloud/cloud_registered</pointCloudTopicName>
             <frameName>${name}_left_camera_optical_frame</frameName>
             <pointCloudCutoff>0.4</pointCloudCutoff>
             <pointCloudCutoffMax>20.0</pointCloudCutoffMax>
