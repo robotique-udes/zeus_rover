@@ -16,9 +16,9 @@
 
   <xacro:macro name="zed_depth_cam" params="parent *origin name" >
 
-    <xacro:zed_camera name="$(arg camera_name)" model="$(arg camera_model)" parent="$(arg base_frame)">
+    <xacro:zed_depth_cam name="$(arg camera_name)" model="$(arg camera_model)" parent="$(arg base_frame)">
       <origin xyz="$(arg cam_pos_x) $(arg cam_pos_y) $(arg cam_pos_z)" rpy="$(arg cam_roll) $(arg cam_pitch) $(arg cam_yaw)" />
-    </xacro:zed_camera>
+    </xacro:zed_depth_cam>
 
     <gazebo reference="${name}_base_link">
       <sensor name="camera" type="depth">
