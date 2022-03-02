@@ -12,7 +12,7 @@
   <xacro:arg name="cam_pitch"     default="0.0" />
   <xacro:arg name="cam_yaw"       default="0.0" />
 
-  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_descr.urdf.xacro" />
 
   <xacro:macro name="zed_depth_cam" params="parent *origin name" >
 
