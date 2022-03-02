@@ -2,12 +2,8 @@
 <robot name="simple" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find zeus_description)/urdf/accessories/camera.urdf.xacro"/>
-  <xacro:include filename="$(find zeus_description)/urdf/accessories/zed.urdf.xacro">
-    <arg name="cam_pos_x" value="0"/>
-    <arg name="cam_pos_y" value="0"/>
-    <arg name="cam_pos_z" value="0.5"/>
-  </xacro:include>
-
+  <xacro:include filename="$(find zeus_description)/urdf/accessories/zed.urdf.xacro"/>
+  
   <xacro:arg name="robot_namespace" default="/" />
 
   <!-- Base size -->
