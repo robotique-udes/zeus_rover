@@ -140,9 +140,9 @@
 
 
   <!-- Zed depth camera -->
-  <xacro:zed_depth_cam name="zed" parent="base_link" >
+  <xacro:zed_camera name="zed" parent="base_link" >
     <origin xyz="0 0 0.5" rpy="0 0 0" />
-  </xacro:zed_depth_cam>
+  </xacro:zed_camera>
 
   <!-- gazebo plugins -->
   <gazebo>

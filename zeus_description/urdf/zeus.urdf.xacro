@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="zeus">
 
   <xacro:include filename="$(find zeus_description)/urdf/accessories/camera.urdf.xacro"/>
-  <xacro:include filename="$(find zeus_description)/urdf/accessories/realsense_d435.urdf.xacro" />
+  <xacro:include filename="$(find zeus_description)/urdf/accessories/zed.urdf.xacro" />
 
   <xacro:property name="deg90" value="1.57075" />
   <xacro:property name="deg45" value="0.7854" />
