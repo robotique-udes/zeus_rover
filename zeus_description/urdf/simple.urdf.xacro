@@ -138,6 +138,11 @@
     <origin xyz="${base_x_size/2+0.01} 0 0" rpy="0 0 0" />
   </xacro:camera_sensor>
 
+  <!-- Zed depth camera -->
+  <!-- <xacro:zed_depth_cam name="zed" parent="base_link" >
+    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  </xacro:zed_depth_cam> -->
+
   <!-- gazebo plugins -->
   <gazebo>
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
@@ -184,12 +189,12 @@
       <frameId>base_link</frameId>
       <topicName>/fix</topicName>
       <velocityTopicName>navsat/vel</velocityTopicName>
-      <referenceLatitude>45.378395</referenceLatitude>
-      <referenceLongitude>-71.926644</referenceLongitude>
+      <referenceLatitude>45.3772267</referenceLatitude>
+      <referenceLongitude>-71.9277420</referenceLongitude>
       <referenceHeading>90</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
       <drift>0.05 0.05 0.05</drift>
-      <gaussianNoise>1 1 1</gaussianNoise>
+      <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
     </plugin>
   </gazebo>
 
