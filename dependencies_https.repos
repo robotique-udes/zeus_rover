@@ -27,10 +27,6 @@ repositories:
     type: git
     url: https://github.com/RobotWebTools/web_video_server.git
     version: develop
-  i2c_imu:
-    type: git
-    url: https://github.com/JeremieBourque1/i2c_imu.git
-    version: master
   differential_drive:
     type: git
     url: https://github.com/STEVE-Rover/differential_drive.git
@@ -46,4 +42,12 @@ repositories:
     type: git
     url: https://github.com/STEVE-Rover/zeus_arm.git
     version: master
+  i2c_imu:
+    type: git
+    url: https://github.com/JeremieBourque1/i2c_imu.git
+    version: master
+  led_controller:
+    type: git
+    url: https://github.com/STEVE-Rover/led_controller.git
+    version main
   
