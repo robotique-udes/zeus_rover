@@ -38,4 +38,4 @@ fi
 mkdir ~/mapproxy
 
 # To make ROS melodic compatible with python3
-sudo apt-get install python3-catkin-pkg-modules && python3-rospkg-modules
+sudo apt-get install python3-catkin-pkg-modules python3-rospkg-modules
