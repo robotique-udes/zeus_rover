@@ -49,5 +49,5 @@ repositories:
   led_controller:
     type: git
     url: https://github.com/STEVE-Rover/led_controller.git
-    version main
+    version: main
   
