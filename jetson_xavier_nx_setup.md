@@ -49,6 +49,12 @@ This guide will show you how to set up the Jetson Xavier NX for the Zeus rover w
     ./ZED_SDK_XXX.run
     ```
 
+8. Add these lines to `~/.bashrc` with the correct IP address
+    ```
+    export ROS_IP=<ip>
+    export ROS_MASTER_URI=http://<ip>:11311
+    ```
+
 ## Wiring
 This is the pinout of the GPIO on a Jetson Xavier NX. Pin 1 is the one closest to the IO ports. Source: https://www.jetsonhacks.com/nvidia-jetson-xavier-nx-gpio-header-pinout/
 ![Jetson Xavier NX GPIO pinout](images/Jetson_Xavier_NX_GPIO_Pinout.png?raw=true "Jetson Xavier NX GPIO pinout")
