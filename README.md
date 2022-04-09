@@ -64,9 +64,9 @@
 8. Go to the root of the workspace and execute `catkin_make` to compile the packages. 
 
     **Note**: Compiling ROS packages that require opencv as an include directory will return an error on a Jetson because it is not installed at the same place it usually is on other systems. To fix this, run this line: 
-        ```bash
-        sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/opencv
-        ```
+    ```bash
+    sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/opencv
+    ```
         
     source: https://answers.ros.org/question/199279/installation-from-source-fails-because-of-cv_bridge-include-dir/
 
