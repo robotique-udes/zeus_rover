@@ -1,2 +1,2 @@
-sudo chmod 666 /dev/ttyTHS0
+sudo chmod 666 /dev/ttyACM0
 sudo modprobe spidev

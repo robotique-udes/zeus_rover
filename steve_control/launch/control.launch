@@ -17,8 +17,9 @@
     <include file="$(find steve_control)/launch/mpu9250.launch" />
 
     <!-- Launch gps -->
-    <!-- Do not forget to give access to the port : sudo chmod 666 /dev/ttyTHS1 -->
+    <!-- Do not forget to give access to the port : ex: sudo chmod 666 /dev/ttyTHS1 -->
     <include file="$(find steve_control)/launch/gps.launch">
+    <include file="$(find tcp_repeater)/launch/tcp_publisher.launch" />
       
     </include>
   </group>
@@ -35,14 +36,14 @@
   </include>
 
   <!-- Safety_break -->
-  <node name="safety_brake" type="safety_brake" pkg="steve_safety_brake" output="screen">
+  <!-- <node name="safety_brake" type="safety_brake" pkg="steve_safety_brake" output="screen">
         <remap from="cmd_vel_in" to="cmd_vel_watchdog"/>
         <remap from="laserscan" to="obstacle_detector/scan"/>
         <remap from="status" to="safety_break/status"/>
         <remap from="cmd_vel_safety_brake" to="cmd_vel_out"/>
         <param name="safety_width" value="1.2" />
         <param name="safety_length" value="3" />
-  </node>
+  </node> -->
 
   <!-- Watchdog -->
   <node name="steve_watchdog" pkg="steve_watchdog" type="steve_watchdog">
@@ -50,7 +51,7 @@
     <remap from="info" to="watchdog/info" />
     <remap from="status" to="watchdog/status" />
     <remap from="cmd_vel_in" to="cmd_vel_mux" />
-    <remap from="cmd_vel_out" to="cmd_vel_watchdog" />
+    <remap from="cmd_vel_out" to="cmd_vel_out" />
   </node>
     
   <!-- Odometry sources -->
