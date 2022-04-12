@@ -50,4 +50,8 @@ repositories:
     type: git
     url: https://github.com/STEVE-Rover/led_controller.git
     version: main
+  tcp_repeater:
+    type: git
+    url: https://github.com/STEVE-Rover/tcp_repeater.git
+    version: main
   
