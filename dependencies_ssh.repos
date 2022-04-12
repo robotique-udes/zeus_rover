@@ -54,3 +54,7 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/tcp_repeater.git
     version: main
+  steve_science:
+    type: git
+    url: git@github.com:STEVE-Rover/steve_science.git
+    version: main
