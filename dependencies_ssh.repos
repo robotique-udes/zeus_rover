@@ -23,14 +23,10 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/urc_2022_aruco_markers.git
     version: main
-  web_video_server:
-    type: git
-    url: git@github.com:RobotWebTools/web_video_server.git
-    version: develop
   differential_drive:
     type: git
     url: git@github.com:STEVE-Rover/differential_drive.git
-    version: master
+    version: dev_wheel_angles
   ros_talon:
     type: git
     url: git@github.com:STEVE-Rover/ros_talon.git
