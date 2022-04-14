@@ -2,7 +2,7 @@
 <robot name="simple" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find zeus_description)/urdf/accessories/camera.urdf.xacro"/>
-  <xacro:include filename="$(find zeus_description)/urdf/accessories/zed.urdf.xacro"/>
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
   
   <xacro:arg name="robot_namespace" default="/" />
 
@@ -139,9 +139,9 @@
   </xacro:camera_sensor>
 
   <!-- Zed depth camera -->
-  <!-- <xacro:zed_depth_cam name="zed" parent="base_link" >
-    <origin xyz="0 0 0.5" rpy="0 0 0" />
-  </xacro:zed_depth_cam> -->
+  <xacro:zed_camera name="zed" model="zed" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:zed_camera>
 
   <!-- gazebo plugins -->
   <gazebo>
