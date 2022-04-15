@@ -10,5 +10,8 @@
         <param name="port" value="/dev/ttyACM0" />
         <param name="baud" value="115200" />
     </node>
+
+    <include file="$(find tcp_repeater)/launch/tcp_publisher.launch" />
+    
 </launch>
     

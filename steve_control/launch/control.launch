@@ -18,10 +18,8 @@
 
     <!-- Launch gps -->
     <!-- Do not forget to give access to the port : ex: sudo chmod 666 /dev/ttyTHS1 -->
-    <include file="$(find steve_control)/launch/gps.launch">
-    <include file="$(find tcp_repeater)/launch/tcp_publisher.launch" />
-      
-    </include>
+    <include file="$(find steve_control)/launch/gps.launch" />
+    
   </group>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
