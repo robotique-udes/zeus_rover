@@ -3,7 +3,7 @@
 
   <!-- TODO: verify parameter values of the real robot -->
   <arg name="simulation" default="false"/>
-  <arg name="base_width" default="0.9"/>
+  <arg name="base_width" default="2.0"/>
   <arg name="wheel_radius" default="0.13"/>
   <arg name="ticks_per_revolution" default="9749.97486979333"/> 
   <arg name="encoder_min" default="-499569.71875"/>
@@ -29,7 +29,7 @@
   </node>
 
   <!-- Differential drive controller -->
-  <node pkg="differential_drive" type="diff_drive.py" name="diff_drive" output="screen">
+  <node pkg="differential_drive" type="diff_drive.py" name="diff_drive">
     <param name="rate" value="10"/>
     <param name="wheel_radius" value="$(arg wheel_radius)"/>
     <param name="base_width" value="$(arg base_width)" />
@@ -39,7 +39,7 @@
   </node>
 
   <!-- Hardware interface -->
-  <node pkg="differential_drive" type="hardware_interface.py" name="hardware_interface" output="screen">
+  <node pkg="differential_drive" type="hardware_interface.py" name="hardware_interface">
     <param name="rate" value="10"/>
     <param name="wheel_radius" value="0.2"/>
     <param name="ticks_per_revolution" value="$(arg ticks_per_revolution)"/>

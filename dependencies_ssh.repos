@@ -58,3 +58,7 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/steve_science.git
     version: main
+  nmea_navsat_driver:
+    type: git
+    url: git@github.com:ros-drivers/nmea_navsat_driver.git
+    version: jade-devel

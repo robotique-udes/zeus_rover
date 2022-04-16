@@ -83,7 +83,7 @@
   <!-- Initialize GPS origin -->
   <node pkg="swri_transform_util" type="initialize_origin.py" name="initialize_origin" >
     <param name="local_xy_frame" value="/map"/>
-    <param name="local_xy_origin" value="Etienne"/>  <!-- Change this to the name of the wanted location in the list-->
+    <param name="local_xy_origin" value="auto"/>  <!-- Change this to the name of the wanted location in the list-->
     <rosparam param="local_xy_origins">
       [{ name: MDRS,
          latitude: 38.406333,
