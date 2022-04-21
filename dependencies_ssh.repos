@@ -42,9 +42,9 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/zeus_arm.git
     version: master
-  i2c_imu:
+  rtimulib_ros:
     type: git
-    url: git@github.com:JeremieBourque1/i2c_imu.git
+    url: git@github.com:romainreignier/rtimulib_ros.git
     version: master
   led_controller:
     type: git
