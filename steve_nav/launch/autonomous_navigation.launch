@@ -8,9 +8,4 @@
 
     <include file="$(find goal_manager)/launch/goal_manager.launch"/>
 
-    <node pkg="led_controller" type="led_controller.py" name="led_controller" output="screen">
-        <param name="rate" value="5"/>
-        <param name="time_thresh" value="0.5"/>
-    </node>
-
 </launch>
