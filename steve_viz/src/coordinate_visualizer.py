@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# TODO: change input method from topic to service
+
 import rospy
 from visualization_msgs.msg import Marker, MarkerArray
 from steve_viz.msg import CoordinateArray
