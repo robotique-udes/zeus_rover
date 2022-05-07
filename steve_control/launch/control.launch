@@ -30,7 +30,7 @@
 
   <!-- Base controller -->
   <!-- base_controller.launch is only included if in sim, because on the real rover it will be launched at boot time -->
-  <include file="$(find steve_control)/launch/base_controller.launch" if="$(arg simulation)">
+  <include file="$(find steve_control)/launch/base_controller.launch" unless="$(arg simulation)">
     <arg name="simulation" value="$(arg simulation)"/>
     <arg name="bypass_safety" value="false"/>
   </include>
