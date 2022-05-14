@@ -4,4 +4,5 @@
     <include file="$(find steve_control)/launch/multi_master.launch" />
     <include file="$(find steve_cam)/launch/fisheye_camera.launch" />
     <include file="$(find led_controller)/launch/led_controller.launch" />
+    <include file="$(find led_controller)/launch/imu.launch" />
 </launch>

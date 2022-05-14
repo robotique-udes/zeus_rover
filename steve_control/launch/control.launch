@@ -14,7 +14,7 @@
     <include file="$(find steve_cam)/launch/zed.launch" />
 
     <!-- IMU -->
-    <include file="$(find steve_control)/launch/mpu9250.launch" />
+    <!-- <include file="$(find steve_control)/launch/imu.launch" /> -->
 
     <!-- Launch gps -->
     <!-- Do not forget to give access to the port : ex: sudo chmod 666 /dev/ttyTHS1 -->
