@@ -3,6 +3,7 @@
     <!-- This launch file will be launched at boot up time -->
     <include file="$(find steve_control)/launch/multi_master.launch" />
     <include file="$(find steve_cam)/launch/fisheye_camera.launch" />
+    <include file="$(find steve_cam)/launch/back_camera.launch" />
     <include file="$(find led_controller)/launch/led_controller.launch" />
     <include file="$(find steve_control)/launch/imu.launch" />
 </launch>
