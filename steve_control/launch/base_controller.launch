@@ -28,28 +28,30 @@
     <param name="rate" value="10" />
   </node>
 
-  <!-- Differential drive controller -->
-  <node pkg="differential_drive" type="diff_drive.py" name="diff_drive">
-    <param name="rate" value="10"/>
-    <param name="wheel_radius" value="$(arg wheel_radius)"/>
-    <param name="base_width" value="$(arg base_width)" />
-    <param name="publish_tf" value="$(arg publish_tf)"/>
-    <remap from="odom" to="base_odom"/>
-    <remap from="cmd_vel" to="cmd_vel_out"/>
-  </node>
+  <group unless="$(arg simulation)">
+    <!-- Differential drive controller -->
+    <node pkg="differential_drive" type="diff_drive.py" name="diff_drive">
+      <param name="rate" value="10"/>
+      <param name="wheel_radius" value="$(arg wheel_radius)"/>
+      <param name="base_width" value="$(arg base_width)" />
+      <param name="publish_tf" value="$(arg publish_tf)"/>
+      <remap from="odom" to="base_odom"/>
+      <remap from="cmd_vel" to="cmd_vel_out"/>
+    </node>
 
-  <!-- Hardware interface -->
-  <node pkg="differential_drive" type="hardware_interface.py" name="hardware_interface">
-    <param name="rate" value="10"/>
-    <param name="wheel_radius" value="0.2"/>
-    <param name="ticks_per_revolution" value="$(arg ticks_per_revolution)"/>
-    <param name="encoder_min" value="$(arg encoder_min)" />
-    <param name="encoder_max" value="$(arg encoder_max)" />
-    <param name="simulation" value="$(arg simulation)"/>
-    <remap from="cmd_motors_diff_drive" to="wheel_vel_target"/>
-  </node>
+    <!-- Hardware interface -->
+    <node pkg="differential_drive" type="hardware_interface.py" name="hardware_interface">
+      <param name="rate" value="10"/>
+      <param name="wheel_radius" value="0.2"/>
+      <param name="ticks_per_revolution" value="$(arg ticks_per_revolution)"/>
+      <param name="encoder_min" value="$(arg encoder_min)" />
+      <param name="encoder_max" value="$(arg encoder_max)" />
+      <param name="simulation" value="$(arg simulation)"/>
+      <remap from="cmd_motors_diff_drive" to="wheel_vel_target"/>
+    </node>
 
-  <!-- Motor drivers -->
-  <include file="$(find steve_control)/launch/motor_drivers.launch" unless="$(arg simulation)" />
+    <!-- Motor drivers -->
+    <include file="$(find steve_control)/launch/motor_drivers.launch" unless="$(arg simulation)" />
+  </group>
 
 </launch>

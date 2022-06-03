@@ -62,3 +62,7 @@ repositories:
     type: git
     url: git@github.com:ros-drivers/nmea_navsat_driver.git
     version: jade-devel
+  gnss_to_map:
+    type: git
+    url: git@github.com:STEVE-Rover/gnss_to_map.git
+    version: master

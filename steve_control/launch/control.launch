@@ -23,6 +23,9 @@
   </group>
 
   <node pkg="gps_heading" type="gps_heading.py" name="gps_heading" output="screen"/>
+  <node pkg="gnss_to_map" type="gnss_to_map.py" name="gnss_to_map">
+    
+  </node>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 
@@ -30,7 +33,7 @@
 
   <!-- Base controller -->
   <!-- base_controller.launch is only included if in sim, because on the real rover it will be launched at boot time -->
-  <include file="$(find steve_control)/launch/base_controller.launch" unless="$(arg simulation)">
+  <include file="$(find steve_control)/launch/base_controller.launch">
     <arg name="simulation" value="$(arg simulation)"/>
     <arg name="bypass_safety" value="false"/>
   </include>
@@ -76,10 +79,11 @@
 
   <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
     <param name="zero_altitude" value="true" />
-    <param name="magnetic_declination_radians" value="0"/>
-    <param name="yaw_offset" value="0"/>  <!-- Change depending on location and date -->
+    <param name="magnetic_declination_radians" value="0"/> <!-- Change depending on location and date -->
+    <param name="yaw_offset" value="0"/>
     <remap from="/gps/fix" to="/fix" />
     <remap from="/odometry/filtered" to="/global_ekf/odom" />
+    <remap from="/imu/data" to="gps_heading"/>
   </node>
 
   <!-- Initialize GPS origin -->
