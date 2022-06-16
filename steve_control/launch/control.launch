@@ -77,15 +77,6 @@
     <remap from="/odometry/filtered" to="/global_ekf/odom" />
   </node>
 
-  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
-    <param name="zero_altitude" value="true" />
-    <param name="magnetic_declination_radians" value="0"/> <!-- Change depending on location and date -->
-    <param name="yaw_offset" value="0"/>
-    <remap from="/gps/fix" to="/fix" />
-    <remap from="/odometry/filtered" to="/global_ekf/odom" />
-    <remap from="/imu/data" to="gps_heading"/>
-  </node>
-
   <!-- Initialize GPS origin -->
   <node pkg="swri_transform_util" type="initialize_origin.py" name="initialize_origin" >
     <param name="local_xy_frame" value="/map"/>
