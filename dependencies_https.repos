@@ -2,11 +2,7 @@ repositories:
   goal_manager:
     type: git
     url: https://github.com/STEVE-Rover/goal_manager.git
-    version: main
-  ros_rtsp:
-    type: git
-    url: https://github.com/CircusMonkey/ros_rtsp.git
-    version: master
+    version: aruco
   steve_safety_brake:
     type: git
     url: https://github.com/STEVE-Rover/steve_safety_brake.git
@@ -23,27 +19,51 @@ repositories:
     type: git
     url: https://github.com/STEVE-Rover/urc_2022_aruco_markers.git
     version: main
-  web_video_server:
-    type: git
-    url: https://github.com/RobotWebTools/web_video_server.git
-    version: develop
-  i2c_imu:
-    type: git
-    url: https://github.com/JeremieBourque1/i2c_imu.git
-    version: master
   differential_drive:
     type: git
     url: https://github.com/STEVE-Rover/differential_drive.git
-    version: master
+    version: dev_wheel_angles
   ros_talon:
     type: git
     url: https://github.com/STEVE-Rover/ros_talon.git
     version: master
   zed-ros-wrapper:
     type: zip
-    url: https://github.com/stereolabs/zed-ros-wrapper/archive/refs/tags/v3.5.zip
+    url: https://github.com/stereolabs/zed-ros-wrapper/archive/refs/tags/v3.7.x.zip
+  zed-ros-interfaces:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-interfaces.git
+    version: d27ba2f4eb19b48f84bc705cfc6ea994f5189a8e
   zeus_arm:
     type: git
     url: https://github.com/STEVE-Rover/zeus_arm.git
+    version: master
+  rtimulib_ros:
+    type: git
+    url: https://github.com/romainreignier/rtimulib_ros.git
+    version: master
+  led_controller:
+    type: git
+    url: https://github.com/STEVE-Rover/led_controller.git
+    version: main
+  tcp_repeater:
+    type: git
+    url: https://github.com/STEVE-Rover/tcp_repeater.git
+    version: main
+  steve_science:
+    type: git
+    url: https://github.com/STEVE-Rover/steve_science.git
+    version: main
+  nmea_navsat_driver:
+    type: git
+    url: https://github.com/ros-drivers/nmea_navsat_driver.git
+    version: jade-devel
+  gps_heading:
+    type: git
+    url: https://github.com/STEVE-Rover/gps_heading.git
+    version: dev
+  gnss_to_map:
+    type: git
+    url: https://github.com/STEVE-Rover/gnss_to_map.git
     version: master
   

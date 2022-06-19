@@ -18,6 +18,8 @@
   <depend>multires_image</depend>
   <depend>joint_state_publisher</depend>
   <depend>joint_state_publisher_gui</depend>
+  <depend>message_runtime</depend>
+  <depend>message_generation</depend>
 
   <export>
   </export>

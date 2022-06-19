@@ -10,37 +10,37 @@
     </node>
 
     <!-- Launch driver for each motor -->
-    <node pkg="ros_talon" type="direct_drive1" name="motor1" output="screen">  
+    <node pkg="ros_talon" type="direct_drive1" name="motor1" >  
       <param name="motor_nb" value="1" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="/cmd_percent_motors" to="/motor_cmd_left" />
     </node>
 
-    <node pkg="ros_talon" type="direct_drive2" name="motor2" output="screen">
+    <node pkg="ros_talon" type="direct_drive2" name="motor2" >
       <param name="motor_nb" value="2" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="/cmd_percent_motors" to="/motor_cmd_right" />
     </node> 
 
-    <node pkg="ros_talon" type="direct_drive3" name="motor3" output="screen">
+    <node pkg="ros_talon" type="direct_drive3" name="motor3" >
       <param name="motor_nb" value="3" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="/cmd_percent_motors" to="/motor_cmd_left" />
     </node> 
 
-    <node pkg="ros_talon" type="direct_drive4" name="motor4" output="screen">
+    <node pkg="ros_talon" type="direct_drive4" name="motor4" >
       <param name="motor_nb" value="4" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="/cmd_percent_motors" to="/motor_cmd_right" />
     </node> 
 
-    <node pkg="ros_talon" type="direct_drive5" name="motor5" output="screen">
+    <node pkg="ros_talon" type="direct_drive5" name="motor5" >
       <param name="motor_nb" value="5" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="/cmd_percent_motors" to="motor_cmd_left" />
     </node> 
 
-    <node pkg="ros_talon" type="direct_drive6" name="motor6" output="screen">
+    <node pkg="ros_talon" type="direct_drive6" name="motor6" >
       <param name="motor_nb" value="6" />
       <rosparam file="$(find ros_talon)/config/motor_param.yaml" command="load" />
       <remap from="/cmd_percent_motors" to="/motor_cmd_right" />

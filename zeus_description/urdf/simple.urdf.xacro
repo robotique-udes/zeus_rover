@@ -2,7 +2,7 @@
 <robot name="simple" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find zeus_description)/urdf/accessories/camera.urdf.xacro"/>
-  <xacro:include filename="$(find zeus_description)/urdf/accessories/zed.urdf.xacro"/>
+  <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
   
   <xacro:arg name="robot_namespace" default="/" />
 
@@ -139,9 +139,9 @@
   </xacro:camera_sensor>
 
   <!-- Zed depth camera -->
-  <!-- <xacro:zed_depth_cam name="zed" parent="base_link" >
-    <origin xyz="0 0 0.5" rpy="0 0 0" />
-  </xacro:zed_depth_cam> -->
+  <xacro:zed_camera name="zed" model="zed" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:zed_camera>
 
   <!-- gazebo plugins -->
   <gazebo>
@@ -189,8 +189,8 @@
       <frameId>base_link</frameId>
       <topicName>/fix</topicName>
       <velocityTopicName>navsat/vel</velocityTopicName>
-      <referenceLatitude>45.3772267</referenceLatitude>
-      <referenceLongitude>-71.9277420</referenceLongitude>
+      <referenceLatitude>45.2961394</referenceLatitude>
+      <referenceLongitude>-71.9630744</referenceLongitude>
       <referenceHeading>90</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
       <drift>0.05 0.05 0.05</drift>
