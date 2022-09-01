@@ -1,7 +1,7 @@
 repositories:
   goal_manager:
     type: git
-    url: https://github.com/STEVE-Rover/goal_manager.git
+    url: git@github.com:STEVE-Rover/goal_manager.git
     version: main
   zeus_safety_brake:
     type: git
