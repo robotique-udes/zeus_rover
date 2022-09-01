@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- This launch file will be launched at boot up time -->
+    <include file="$(find zeus_control)/launch/multi_master.launch" />
+    <include file="$(find tcp_repeater)/launch/tcp_repeater.launch" />
+</launch>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+ 
+    <arg name="svo_file"             default="" /> <!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
+    <arg name="stream"               default="" /> <!-- <arg name="stream" default="<ip_address>:<port>"> -->
+
+
+    <node name="zed_node" pkg="zed_wrapper" type="zed_wrapper_node" output="screen" required="true"> <!-- launch-prefix="valgrind" -->
+        <rosparam file="$(find zeus_cam)/config/zed_common.yaml" command="load" />
+
+        <!-- SVO file path -->
+        <param name="svo_file"                          value="$(arg svo_file)" />
+
+        <!-- Remote stream -->
+        <param name="stream"                            value="$(arg stream)" />
+
+    </node>
+
+</launch>
+

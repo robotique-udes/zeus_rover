@@ -1,1 +1,0 @@
-steve_viz/Coordinate[] coordinates

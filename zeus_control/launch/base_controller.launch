@@ -1,0 +1,57 @@
+<?xml version='1.0'?>
+<launch>
+
+  <!-- TODO: verify parameter values of the real robot -->
+  <arg name="simulation" default="false"/>
+  <arg name="base_width" default="2.0"/>
+  <arg name="wheel_radius" default="0.13"/>
+  <arg name="ticks_per_revolution" default="9749.97486979333"/> 
+  <arg name="encoder_min" default="-499569.71875"/>
+  <arg name="encoder_max" default="499569.71875"/>
+  <arg name="publish_tf" default="false"/>
+  <arg name="bypass_safety" default="false"/>
+
+  <!-- Twist Multiplexer -->
+  <!-- If bypass_safety == true, the output of twist_mux will go directly to diff_drive instead of -->
+  <!-- passing by safety_brake and watchdog first. -->
+  <node name="twist_mux" pkg="twist_mux" type="twist_mux" if="$(arg bypass_safety)">
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_topics.yaml" />
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_locks.yaml" />
+  </node>
+  <node name="twist_mux" pkg="twist_mux" type="twist_mux" unless="$(arg bypass_safety)">
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_topics.yaml" />
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_locks.yaml" />
+    <remap from="cmd_vel_out" to="cmd_vel_mux" />
+  </node>
+
+  <node pkg="zeus_teleop" type="zero_twist_publisher" name="zero_twist_publisher" >
+    <param name="rate" value="10" />
+  </node>
+
+  <group unless="$(arg simulation)">
+    <!-- Differential drive controller -->
+    <node pkg="differential_drive" type="diff_drive.py" name="diff_drive">
+      <param name="rate" value="10"/>
+      <param name="wheel_radius" value="$(arg wheel_radius)"/>
+      <param name="base_width" value="$(arg base_width)" />
+      <param name="publish_tf" value="$(arg publish_tf)"/>
+      <remap from="odom" to="base_odom"/>
+      <remap from="cmd_vel" to="cmd_vel_out"/>
+    </node>
+
+    <!-- Hardware interface -->
+    <node pkg="differential_drive" type="hardware_interface.py" name="hardware_interface">
+      <param name="rate" value="10"/>
+      <param name="wheel_radius" value="0.2"/>
+      <param name="ticks_per_revolution" value="$(arg ticks_per_revolution)"/>
+      <param name="encoder_min" value="$(arg encoder_min)" />
+      <param name="encoder_max" value="$(arg encoder_max)" />
+      <param name="simulation" value="$(arg simulation)"/>
+      <remap from="cmd_motors_diff_drive" to="wheel_vel_target"/>
+    </node>
+
+    <!-- Motor drivers -->
+    <include file="$(find zeus_control)/launch/motor_drivers.launch" unless="$(arg simulation)" />
+  </group>
+
+</launch>

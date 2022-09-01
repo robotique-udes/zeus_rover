@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="use_simple_obstacle_detector" default="true"/>
+
+    <!-- <include if="$(arg use_simple_obstacle_detector)" file="$(find zeus_nav)/launch/obstacle_detector_simple.launch" />
+    <include unless="$(arg use_simple_obstacle_detector)" file="$(find zeus_nav)/launch/obstacle_detector.launch"/> -->
+    <include file="$(find zeus_nav)/launch/move_base.launch"/>
+
+    <include file="$(find goal_manager)/launch/goal_manager.launch"/>
+
+</launch>

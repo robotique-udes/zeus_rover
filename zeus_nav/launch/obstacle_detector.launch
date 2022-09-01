@@ -1,0 +1,28 @@
+<launch>
+    <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
+    <node pkg="nodelet" type="nodelet" name="voxel_grid" args="standalone pcl/VoxelGrid" output="screen">
+        <remap from="~input" to="/zed_node/point_cloud/cloud_registered"/> 
+        <rosparam>
+            filter_field_name: y
+            filter_limit_min: 0.01
+            filter_limit_max: 3
+            filter_limit_negative: False
+            leaf_size: 0.02
+        </rosparam>
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="ground_segmentor" args="standalone rtabmap_ros/obstacles_detection">
+        <remap from="cloud" to="/voxel_grid/output" />
+        <remap from="ground" to="/ground_segmentor/ground" />
+        <remap from="obstacles" to="/ground_segmentor/obstacles" />
+
+    </node>
+
+    <!-- obstacle detector node, converts pointcloud into laserscan -->
+    <node name="obstacle_detector_PC_to_LS" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan" output="screen">
+        <remap from="cloud_in" to="/ground_segmentor/obstacles"/>
+        <remap from="scan" to="/obstacle_detector/scan"/>
+        <rosparam command="load" file="$(find zeus_nav)/config/laserscan_parameters.yaml" />     
+    </node>
+
+</launch>
