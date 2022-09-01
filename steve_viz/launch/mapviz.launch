@@ -1,7 +1,7 @@
 <launch>
 
   <node pkg="mapviz" type="mapviz" name="mapviz">
-      <param name="config" value="$(find steve_viz)/config/mapviz.config"/>
+      <param name="config" value="$(find zeus_viz)/config/mapviz.config"/>
   </node>
   
   <node pkg="tf" type="static_transform_publisher" name="map_origin_transform_pub" args="0 0 0 0 0 0 /map /origin 100"  />

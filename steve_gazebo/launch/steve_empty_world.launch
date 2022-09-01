@@ -15,10 +15,10 @@
     <arg name="pub_clock_frequency" value="1000"/>
   </include>
 
-  <include file="$(find steve_gazebo)/launch/spawn_steve_simple.launch" if="$(arg simple)">
+  <include file="$(find zeus_gazebo)/launch/spawn_zeus_simple.launch" if="$(arg simple)">
     <arg name="z" value="1.03" />
   </include>
-  <include file="$(find steve_gazebo)/launch/spawn_steve.launch" unless="$(arg simple)">
+  <include file="$(find zeus_gazebo)/launch/spawn_zeus.launch" unless="$(arg simple)">
     <arg name="z" value="1.03" />
   </include>
 

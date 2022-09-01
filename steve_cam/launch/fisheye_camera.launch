@@ -19,7 +19,7 @@
         <arg name="frame_id" value="$(arg name)_link" />
         <!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
         "file:///$(find your_camera_package)/config/your_camera.yaml" -->
-        <!-- <arg name="camera_info_url" value="file:///$(find steve_cam)/config/xps15_7590_camera_info.yaml" /> -->
+        <!-- <arg name="camera_info_url" value="file:///$(find zeus_cam)/config/xps15_7590_camera_info.yaml" /> -->
         <!-- flip the image horizontally (mirror it) -->
         <arg name="flip_horizontal" value="false" />
         <!-- flip the image vertically -->

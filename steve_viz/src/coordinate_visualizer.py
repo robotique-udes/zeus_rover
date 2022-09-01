@@ -4,7 +4,7 @@
 
 import rospy
 from visualization_msgs.msg import Marker, MarkerArray
-from steve_viz.msg import CoordinateArray
+from zeus_viz.msg import CoordinateArray
 
 rospy.init_node("coordinate_visualizer", anonymous = True)
 rospy.loginfo("coordinate_visualizer started")

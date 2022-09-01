@@ -9,12 +9,12 @@
 
   <group ns="$(arg robot_namespace)">
 
-    <include file="$(find steve_control)/launch/control.launch" >
+    <include file="$(find zeus_control)/launch/control.launch" >
       <arg name="simulation" value="true"/>
       <arg name="simple" value="true"/>
     </include>
 
-    <include file="$(find steve_watchdog)/launch/heartbeat.launch" />
+    <include file="$(find zeus_watchdog)/launch/heartbeat.launch" />
 
     <!-- Spawn robot in gazebo -->
     <node name="spawn_rover_model" pkg="gazebo_ros" type="spawn_model"

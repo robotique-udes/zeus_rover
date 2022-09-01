@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <node pkg="rtimulib_ros" type="rtimulib_ros" name="rtimulib_node" output="screen">
-        <param name="calibration_file_path" value="$(find steve_control)/config"/>
+        <param name="calibration_file_path" value="$(find zeus_control)/config"/>
         <param name="calibration_file_name" value="RTIMULib" />
         <param name="frame_id" value="imu_link"/>
         <param name="use_compass" value="false" />

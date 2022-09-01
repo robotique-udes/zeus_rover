@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>steve_viz</name>
+  <name>zeus_viz</name>
   <version>0.0.0</version>
-  <description>The steve_viz package</description>
+  <description>The zeus_viz package</description>
 
   <maintainer email="jeremie.bourque@usherbrooke.ca">Jeremie Bourque</maintainer>
 

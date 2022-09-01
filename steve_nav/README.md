@@ -1,10 +1,10 @@
-# steve_nav
+# zeus_nav
 Package containing launch and configuration files for autonomous navigation
 
 ## Autonomous navigation
 The entire autonomous navigation stack can be launched with:
 ```bash
-roslaunch steve_nav autonomous_navigation.launch
+roslaunch zeus_nav autonomous_navigation.launch
 ```
 **Note**: the control part needs to be running first.
 
@@ -15,7 +15,7 @@ move_base is the default ROS package for autonomous navigation.
 1. Launch the rover or gazebo simulation
 2. Launch move_base with:
     ```bash
-    roslaunch steve_nav move_base.launch
+    roslaunch zeus_nav move_base.launch
     ```
 You should now see costmaps appearing in RViz and MapViz.
 
@@ -46,9 +46,9 @@ Converts a 3D point cloud into a laser scan and keeps only the points belonging 
 ### Usage
 For a simple obstacle detection feeding the complete pointcloud to the node that transform it into a laserscan. The more complicated version uses an obstacle detector that segments the pointcloud into 2: 1 for the obtsacles and 1 for the ground. The node is then feed the obstacle pointcloud.
 ```bash
-roslaunch steve_nav obstacle_detector_simple.launch
+roslaunch zeus_nav obstacle_detector_simple.launch
 ```
 Or
 ```bash
-roslaunch steve_nav obstacle_detector.launch
+roslaunch zeus_nav obstacle_detector.launch
 ```

@@ -6,7 +6,7 @@
 
   <node pkg="nodelet" type="nodelet" name="Image2RTSPNodelet" args="load image2rtsp/Image2RTSPNodelet standalone_nodelet" output="screen">
     <!-- Read the stream setup file -->
-    <rosparam command="load" file="$(find steve_cam)/config/stream_setup.yaml" />
+    <rosparam command="load" file="$(find zeus_cam)/config/stream_setup.yaml" />
   </node>
 
 </launch>

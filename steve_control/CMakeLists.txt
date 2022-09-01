@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(steve_control)
+project(zeus_control)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp

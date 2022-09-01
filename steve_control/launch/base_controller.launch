@@ -15,16 +15,16 @@
   <!-- If bypass_safety == true, the output of twist_mux will go directly to diff_drive instead of -->
   <!-- passing by safety_brake and watchdog first. -->
   <node name="twist_mux" pkg="twist_mux" type="twist_mux" if="$(arg bypass_safety)">
-    <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
-    <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_topics.yaml" />
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_locks.yaml" />
   </node>
   <node name="twist_mux" pkg="twist_mux" type="twist_mux" unless="$(arg bypass_safety)">
-    <rosparam command="load" file="$(find steve_control)/config/twist_mux_topics.yaml" />
-    <rosparam command="load" file="$(find steve_control)/config/twist_mux_locks.yaml" />
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_topics.yaml" />
+    <rosparam command="load" file="$(find zeus_control)/config/twist_mux_locks.yaml" />
     <remap from="cmd_vel_out" to="cmd_vel_mux" />
   </node>
 
-  <node pkg="steve_teleop" type="zero_twist_publisher" name="zero_twist_publisher" >
+  <node pkg="zeus_teleop" type="zero_twist_publisher" name="zero_twist_publisher" >
     <param name="rate" value="10" />
   </node>
 
@@ -51,7 +51,7 @@
     </node>
 
     <!-- Motor drivers -->
-    <include file="$(find steve_control)/launch/motor_drivers.launch" unless="$(arg simulation)" />
+    <include file="$(find zeus_control)/launch/motor_drivers.launch" unless="$(arg simulation)" />
   </group>
 
 </launch>

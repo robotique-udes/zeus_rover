@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(steve_nav)
+project(zeus_nav)
 
 find_package(catkin REQUIRED COMPONENTS
   message_generation
