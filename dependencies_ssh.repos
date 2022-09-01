@@ -2,7 +2,7 @@ repositories:
   goal_manager:
     type: git
     url: https://github.com/STEVE-Rover/goal_manager.git
-    version: aruco
+    version: main
   steve_safety_brake:
     type: git
     url: git@github.com:STEVE-Rover/steve_safety_brake.git
@@ -61,7 +61,7 @@ repositories:
   gps_heading:
     type: git
     url: git@github.com:STEVE-Rover/gps_heading.git
-    version: dev
+    version: main
   gnss_to_map:
     type: git
     url: git@github.com:STEVE-Rover/gnss_to_map.git
