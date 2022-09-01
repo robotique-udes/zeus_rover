@@ -3,17 +3,17 @@ repositories:
     type: git
     url: https://github.com/STEVE-Rover/goal_manager.git
     version: main
-  steve_safety_brake:
+  zeus_safety_brake:
     type: git
-    url: git@github.com:STEVE-Rover/steve_safety_brake.git
+    url: git@github.com:STEVE-Rover/zeus_safety_brake.git
     version: main
-  steve_teleop:
+  zeus_teleop:
     type: git
-    url: git@github.com:STEVE-Rover/steve_teleop.git
+    url: git@github.com:STEVE-Rover/zeus_teleop.git
     version: main
-  steve_watchdog:
+  zeus_watchdog:
     type: git
-    url: git@github.com:STEVE-Rover/steve_watchdog.git
+    url: git@github.com:STEVE-Rover/zeus_watchdog.git
     version: main
   urc_2022_aruco_markers:
     type: git
@@ -49,9 +49,9 @@ repositories:
     type: git
     url: git@github.com:STEVE-Rover/tcp_repeater.git
     version: main
-  steve_science:
+  zeus_science:
     type: git
-    url: git@github.com:STEVE-Rover/steve_science.git
+    url: git@github.com:STEVE-Rover/zeus_science.git
     version: main
   nmea_navsat_driver:
     type: git
