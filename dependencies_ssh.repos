@@ -25,7 +25,7 @@ repositories:
     version: dev_wheel_angles
   ros_talon:
     type: git
-    url: git@github.com:STEVE-Rover/ros_talon.git
+    url: git@github.com:robotique-udes/ros_talon.git
     version: master
   zed-ros-wrapper:
     type: zip
