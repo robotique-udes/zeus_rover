@@ -65,4 +65,13 @@ repositories:
     type: git
     url: https://github.com/STEVE-Rover/gnss_to_map.git
     version: master
+  rqt_autonomous_nav:
+    type: git
+    url: https://github.com/STEVE-Rover/rqt_autonomous_nav.git
+    version: main
+  zeus_localization:
+    type: git
+    url: https://github.com/STEVE-Rover/zeus_localization.git
+    version: main
+
   

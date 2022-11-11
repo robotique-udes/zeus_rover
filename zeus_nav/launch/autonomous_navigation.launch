@@ -8,4 +8,6 @@
 
     <include file="$(find goal_manager)/launch/goal_manager.launch"/>
 
+    <node name="rqt_autonomous_nav" pkg="rqt_autonomous_nav" type="rqt_autonomous_nav" output="screen"/>
+    
 </launch>
