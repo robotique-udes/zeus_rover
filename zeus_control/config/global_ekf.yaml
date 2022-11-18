@@ -28,22 +28,13 @@ imu0_differential: false
 imu0_queue_size: 10
 imu0_remove_gravitational_acceleration: true 
 
-odom0: zed_node/odom
-odom0_config: [true, true, false,
-               false, false, false,
-               false, false, false,
-               false, false, true,
-               false, false, false]
-odom0_differential: true
-odom0_queue_size: 10
-
-pose1: /gnss_map_pose
-pose1_config: [true, true, false,
+pose0: /gnss_map_pose
+pose0_config: [true, true, false,
                false, false, false,
                false, false, false,
                false, false, false,
                false, false, false]
-pose1_differential: false
-pose1_queue_size: 10          
+pose0_differential: false
+pose0_queue_size: 10          
 
            

@@ -13,8 +13,7 @@
     <!-- test cam zed -->
     <!-- <include file="$(find zeus_cam)/launch/zed.launch" /> -->
 
-    <!-- IMU -->
-    <!-- <include file="$(find zeus_control)/launch/imu.launch" /> -->
+    <!-- IMU is launched in upstart_jetson_nano -->
 
     <!-- Launch gps -->
     <!-- Do not forget to give access to the port : ex: sudo chmod 666 /dev/ttyTHS1 -->
@@ -38,16 +37,6 @@
     <arg name="bypass_safety" value="false"/>
   </include>
 
-  <!-- Safety_break -->
-  <!-- <node name="safety_brake" type="safety_brake" pkg="zeus_safety_brake" output="screen">
-        <remap from="cmd_vel_in" to="cmd_vel_watchdog"/>
-        <remap from="laserscan" to="obstacle_detector/scan"/>
-        <remap from="status" to="safety_break/status"/>
-        <remap from="cmd_vel_safety_brake" to="cmd_vel_out"/>
-        <param name="safety_width" value="1.2" />
-        <param name="safety_length" value="3" />
-  </node> -->
-
   <!-- Watchdog -->
   <node name="zeus_watchdog" pkg="zeus_watchdog" type="zeus_watchdog">
     <rosparam file="$(find zeus_control)/config/watchdog_topics.yaml" command="load" />
@@ -56,15 +45,6 @@
     <remap from="cmd_vel_in" to="cmd_vel_mux" />
     <remap from="cmd_vel_out" to="cmd_vel_out" />
   </node>
-    
-  <!-- Odometry sources -->
-  <!-- <node name="rgbd_odometry" pkg="rtabmap_ros" type="rgbd_odometry" >
-    <remap from="rgb/image" to="/zed_node/rgb/image_rect_color" />
-    <remap from="rgb/camera_info" to="/zed_node/rgb/camera_info" />
-    <remap from="depth/image" to="/zed_node/depth/depth_registered" />
-    <remap from="odom" to="rgbd_odom" />
-    <rosparam command="load" file="$(find zeus_control)/config/rgbd_odometry.yaml"/>
-  </node> -->
 
   <!-- Localization -->
   <node pkg="zeus_localization" type="zeus_localization.py" name="zeus_localization">
