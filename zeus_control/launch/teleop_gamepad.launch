@@ -13,8 +13,8 @@
         <param name="angular_vel_axis" value="0" />
         <param name="deadman_switch" value="5" />
         <param name="turbo_button" value="1" />
-        <param name="max_linear_vel" value="1.5" />  <!-- m/s -->
-        <param name="max_angular_vel" value="1" />  <!-- rad/s -->
+        <param name="max_linear_vel" value="0.5" />  <!-- m/s -->
+        <param name="max_angular_vel" value="0.5" />  <!-- rad/s -->
         <param name="turbo_max_linear_vel" value="3" />  <!-- m/s -->
         <param name="turbo_max_angular_vel" value="1.5" />  <!-- rad/s -->
     </node>
